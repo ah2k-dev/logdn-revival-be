@@ -30,6 +30,9 @@ const userSchema = new Schema({
     enum: ["user", "admin"],
     default: "user",
   },
+  profilePic: {
+    type: String,
+  },
   createdAt: {
     type: Date,
     default: Date.now(),
@@ -56,6 +59,11 @@ const userSchema = new Schema({
   isActive: {
     type: Boolean,
     default: true,
+  },
+  auth: {
+    type: String,
+    default: "app",
+    enum: ["app", "google"],
   },
 });
 

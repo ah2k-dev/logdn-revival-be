@@ -110,8 +110,12 @@ const login = async (req, res) => {
     if (!user.emailVerified) {
       return ErrorHandler("Email not verified", 400, req, res);
     }
-    jwtToken = user.getJWTToken();
-    return SuccessHandler("Logged in successfully", 200, res);
+    let jwtToken = user.getJWTToken();
+    return SuccessHandler(
+      { message: "Logged in successfully", jwtToken },
+      200,
+      res
+    );
   } catch (error) {
     return ErrorHandler(error.message, 500, req, res);
   }
@@ -144,7 +148,7 @@ const forgotPassword = async (req, res) => {
     user.passwordResetToken = passwordResetToken;
     user.passwordResetTokenExpires = passwordResetTokenExpires;
     await user.save();
-    const message = `Your password reset token is ${resetPasswordToken} and it expires in 10 minutes`;
+    const message = `Your password reset token is ${passwordResetToken} and it expires in 10 minutes`;
     const subject = `Password reset token`;
     await sendMail(email, subject, message);
     return SuccessHandler(`Password reset token sent to ${email}`, 200, res);
@@ -219,6 +223,35 @@ const updatePassword = async (req, res) => {
   }
 };
 
+//googleAuth
+const googleAuth = async (req, res) => {
+  // #swagger.tags = ['auth']
+  try {
+    const { email, name, profilePic, emailVerified } = req.body;
+    const exUser = await User.findOne({ email: email });
+    let user;
+    let jwtToken;
+    if (!exUser) {
+      user = await User.create({
+        email: email,
+        name: name,
+        profilePic: profilePic,
+        emailVerified: emailVerified,
+      });
+      jwtToken = user.getJWTToken();
+    } else {
+      jwtToken = exUser.getJWTToken();
+    }
+    return SuccessHandler(
+      { message: "Logged in successfully", jwtToken },
+      200,
+      res
+    );
+  } catch (error) {
+    return ErrorHandler(error.message, 500, req, res);
+  }
+};
+
 module.exports = {
   register,
   requestEmailToken,
@@ -228,4 +261,5 @@ module.exports = {
   forgotPassword,
   resetPassword,
   updatePassword,
+  googleAuth,
 };
