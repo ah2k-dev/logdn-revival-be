@@ -1,5 +1,5 @@
 const mongoose = require("mongoose");
-const Schema = mongoose.Schemma;
+const Schema = mongoose.Schema;
 
 const requestSchema = new Schema({
   user: {
@@ -14,6 +14,10 @@ const requestSchema = new Schema({
     },
     lang: {
       type: Number,
+      required: true,
+    },
+    string: {
+      type: String,
       required: true,
     },
   },

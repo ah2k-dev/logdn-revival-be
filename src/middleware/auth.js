@@ -18,4 +18,33 @@ const isAuthenticated = async (req, res, next) => {
   }
 };
 
-module.exports = isAuthenticated;
+const userAuth = async (req, res, next) => {
+  try {
+    if(!req.user) {
+      return res.status(401).json({ success: false, message: "Not logged in" });
+    }
+    if (req.user.role !== "user") {
+      return res.status(401).json({ success: false, message: "Not authorized" });
+    }
+    next();
+  } catch (error) {
+    res.status(500).json({ success: false, message: error.message });   
+  }
+}
+
+const adminAuth = async (req, res, next) => {
+  try {
+    if(!req.user) {
+      return res.status(401).json({ success: false, message: "Not logged in" });
+    }
+    if (req.user.role !== "admin") {
+      return res.status(401).json({ success: false, message: "Not authorized" });
+    }
+    next();
+  } catch (error) {
+    res.status(500).json({ success: false, message: error.message });
+  }
+}
+
+module.exports = { isAuthenticated, userAuth, adminAuth };
+

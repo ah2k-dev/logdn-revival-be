@@ -2,6 +2,7 @@ const User = require("../models/User/user");
 const sendMail = require("../utils/sendMail");
 const SuccessHandler = require("../utils/SuccessHandler");
 const ErrorHandler = require("../utils/ErrorHandler");
+const request = require("../models/Booking/request");
 //register
 const register = async (req, res) => {
   // #swagger.tags = ['auth']
@@ -96,7 +97,7 @@ const verifyEmail = async (req, res) => {
 //login
 const login = async (req, res) => {
   // #swagger.tags = ['auth']
-
+  // #swagger.description = 'Send withRequest true if logging in with request payload. location includes llat, lang, string. dateRange is an array 0 index for start and 1 for end. roomRequirements includes single, double, animalSupport.'
   try {
     const { email, password } = req.body;
     const user = await User.findOne({ email }).select("+password");
@@ -111,11 +112,27 @@ const login = async (req, res) => {
       return ErrorHandler("Email not verified", 400, req, res);
     }
     let jwtToken = user.getJWTToken();
-    return SuccessHandler(
-      { message: "Logged in successfully", jwtToken },
-      200,
-      res
-    );
+    if (req.body.withRequest == true) {
+      const { location, dateRange, roomRequirements } = req.body;
+      const request = await request.create({
+        location,
+        dateRange,
+        roomRequirements,
+        user: user._id,
+      });
+      request.save();
+      return SuccessHandler(
+        { message: "Logged in successfully", jwtToken, request },
+        200,
+        res
+      );
+    } else {
+      return SuccessHandler(
+        { message: "Logged in successfully", jwtToken },
+        200,
+        res
+      );
+    }
   } catch (error) {
     return ErrorHandler(error.message, 500, req, res);
   }
