@@ -1,7 +1,7 @@
 const offering = require("../models/Booking/offering");
 const request = require("../models/Booking/request");
-const ErrorHandler = require("../utils/errorHandler");
-const SuccessHandler = require("../utils/successHandler");
+const ErrorHandler = require("../utils/ErrorHandler");
+const SuccessHandler = require("../utils/SuccessHandler");
 
 const createRequest = async (req, res) => {
   // #swagger.tags = ['requests']
