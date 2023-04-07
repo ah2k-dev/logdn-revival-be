@@ -45,6 +45,10 @@ const requestSchema = new Schema({
     default: "recieved",
     enum: ["recieved", "negotiating", "completed", "paymentVerified"],
   },
+  offerings: {
+    type: [Schema.Types.ObjectId],
+    ref: "offering",
+  },
   isActive: {
     type: Boolean,
     default: true,
