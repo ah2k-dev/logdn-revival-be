@@ -12,7 +12,7 @@ const requestSchema = new Schema({
       type: Number,
       required: true,
     },
-    lang: {
+    lng: {
       type: Number,
       required: true,
     },

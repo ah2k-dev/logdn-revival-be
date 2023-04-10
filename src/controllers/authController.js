@@ -119,15 +119,15 @@ const login = async (req, res) => {
     delete user.passwordResetTokenExpires;
     if (req.body.withRequest == true) {
       const { location, dateRange, roomRequirements } = req.body;
-      const request = await request.create({
+      const newrequest = await request.create({
         location,
         dateRange,
         roomRequirements,
         user: user._id,
       });
-      request.save();
+      newrequest.save();
       return SuccessHandler(
-        { message: "Logged in successfully", jwtToken, request, userData: user },
+        { message: "Logged in successfully", jwtToken, newrequest, userData: user },
         200,
         res
       );

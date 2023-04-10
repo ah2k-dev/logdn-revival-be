@@ -198,3 +198,8 @@
 {"date":"2023-04-05T16:42:45.444Z","level":"info","message":"Request received","method":"POST","service":"user-service","url":"/auth/login"}
 {"date":"2023-04-05T16:43:49.930Z","level":"info","message":"Request received","method":"POST","service":"user-service","url":"/auth/login"}
 {"date":"2023-04-05T16:46:02.522Z","level":"info","message":"Request received","method":"POST","service":"user-service","url":"/auth/login"}
+{"date":"2023-04-10T17:21:41.543Z","level":"info","message":"Request received","method":"POST","service":"user-service","url":"/auth/login"}
+{"date":"2023-04-10T17:21:41.889Z","level":"error","message":"Cannot access 'request' before initialization","method":"POST","service":"user-service","url":"/login"}
+{"date":"2023-04-10T17:23:09.482Z","level":"info","message":"Request received","method":"POST","service":"user-service","url":"/auth/login"}
+{"date":"2023-04-10T17:23:09.682Z","level":"error","message":"request validation failed: location.lang: Path `location.lang` is required.","method":"POST","service":"user-service","url":"/login"}
+{"date":"2023-04-10T17:23:52.311Z","level":"info","message":"Request received","method":"POST","service":"user-service","url":"/auth/login"}
