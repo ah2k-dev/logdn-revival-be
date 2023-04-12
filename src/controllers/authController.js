@@ -28,6 +28,7 @@ const register = async (req, res) => {
       name,
       email,
       password,
+      // role: 'admin'
     });
     newUser.save();
     return SuccessHandler("User created successfully", 200, res);

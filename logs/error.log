@@ -22,3 +22,7 @@
 {"date":"2023-04-05T16:34:14.647Z","level":"error","message":"Email not verified","method":"POST","service":"user-service","url":"/login"}
 {"date":"2023-04-10T17:21:41.889Z","level":"error","message":"Cannot access 'request' before initialization","method":"POST","service":"user-service","url":"/login"}
 {"date":"2023-04-10T17:23:09.682Z","level":"error","message":"request validation failed: location.lang: Path `location.lang` is required.","method":"POST","service":"user-service","url":"/login"}
+{"date":"2023-04-12T16:19:54.693Z","level":"error","message":"Cannot access 'request' before initialization","method":"POST","service":"user-service","url":"/create"}
+{"date":"2023-04-12T16:27:11.481Z","level":"error","message":"Email not verified","method":"POST","service":"user-service","url":"/login"}
+{"date":"2023-04-12T16:35:01.729Z","level":"error","message":"$where not allowed in this atlas tier","method":"GET","service":"user-service","url":"/get"}
+{"date":"2023-04-12T16:35:08.389Z","level":"error","message":"$where not allowed in this atlas tier","method":"GET","service":"user-service","url":"/get"}

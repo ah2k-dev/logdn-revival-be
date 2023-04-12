@@ -8,18 +8,18 @@ const createRequest = async (req, res) => {
   try {
     const userId = req.user._id;
     const { location, dateRange, roomRequirements } = req.body;
-    const request = await request.create({
+    const newrequest = await request.create({
       location,
       dateRange,
       roomRequirements,
       user: userId,
     });
-    request.save();
-    if (!request) {
+    newrequest.save();
+    if (!newrequest) {
       return ErrorHandler("Request not created", 400, req, res);
     }
     return SuccessHandler(
-      { message: "Request created successfully", request },
+      { message: "Request created successfully", newrequest },
       201,
       res
     );
@@ -34,7 +34,8 @@ const getRequests = async (req, res) => {
     if (req.user.role == "admin") {
       const requests = await request.find({
         isActive: true,
-        $where: "this.status != 'ongoing'",
+        // $where: "this.status != 'ongoing'",
+        status: { $ne: "ongoing" },
       });
       if (!requests) {
         return ErrorHandler("No requests found", 400, req, res);
@@ -48,7 +49,8 @@ const getRequests = async (req, res) => {
       const requests = await request.find({
         user: userId,
         isActive: true,
-        $where: "this.status != 'ongoing'",
+        // $where: "this.status != 'ongoing'",
+        status: { $ne: "ongoing" },
       });
       if (!requests) {
         return ErrorHandler("No requests found", 400, req, res);
