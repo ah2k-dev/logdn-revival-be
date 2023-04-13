@@ -61,7 +61,7 @@
         "tags": [
           "auth"
         ],
-        "description": "",
+        "description": "Send withRequest true if logging in with request payload. location includes llat, lang, string. dateRange is an array 0 index for start and 1 for end. roomRequirements includes single, double, animalSupport.",
         "parameters": [
           {
             "name": "body",
@@ -69,10 +69,22 @@
             "schema": {
               "type": "object",
               "properties": {
+                "withRequest": {
+                  "example": "any"
+                },
                 "email": {
                   "example": "any"
                 },
                 "password": {
+                  "example": "any"
+                },
+                "location": {
+                  "example": "any"
+                },
+                "dateRange": {
+                  "example": "any"
+                },
+                "roomRequirements": {
                   "example": "any"
                 }
               }
@@ -241,6 +253,224 @@
                   "example": "any"
                 },
                 "newPassword": {
+                  "example": "any"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "401": {
+            "description": "Unauthorized"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/requests/create": {
+      "post": {
+        "tags": [
+          "requests"
+        ],
+        "description": "",
+        "parameters": [
+          {
+            "name": "authorization",
+            "in": "header",
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "location": {
+                  "example": "any"
+                },
+                "dateRange": {
+                  "example": "any"
+                },
+                "roomRequirements": {
+                  "example": "any"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "401": {
+            "description": "Unauthorized"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/requests/get": {
+      "get": {
+        "tags": [
+          "requests"
+        ],
+        "description": "",
+        "parameters": [
+          {
+            "name": "authorization",
+            "in": "header",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "401": {
+            "description": "Unauthorized"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/requests/getOngoing": {
+      "get": {
+        "tags": [
+          "requests"
+        ],
+        "description": "",
+        "parameters": [
+          {
+            "name": "authorization",
+            "in": "header",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "401": {
+            "description": "Unauthorized"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/requests/get/{id}": {
+      "get": {
+        "tags": [
+          "requests"
+        ],
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "authorization",
+            "in": "header",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "401": {
+            "description": "Unauthorized"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/requests/update/{id}": {
+      "put": {
+        "tags": [
+          "requests"
+        ],
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "authorization",
+            "in": "header",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "401": {
+            "description": "Unauthorized"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/requests/delete/{id}": {
+      "delete": {
+        "tags": [
+          "requests"
+        ],
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "authorization",
+            "in": "header",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "401": {
+            "description": "Unauthorized"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/requests/status/{id}": {
+      "put": {
+        "tags": [
+          "requests"
+        ],
+        "description": "Handles the status of a request and when completed, creates offerings",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "authorization",
+            "in": "header",
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "status": {
+                  "example": "any"
+                },
+                "offerings": {
                   "example": "any"
                 }
               }
