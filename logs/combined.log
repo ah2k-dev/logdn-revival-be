@@ -264,3 +264,70 @@
 {"date":"2023-04-12T16:54:29.570Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/requests/get"}
 {"date":"2023-04-12T16:55:53.381Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/requests/get"}
 {"date":"2023-04-12T16:55:53.912Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/requests/get"}
+{"date":"2023-04-13T16:50:14.951Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/requests/get"}
+{"date":"2023-04-13T16:50:18.239Z","level":"info","message":"Request received","method":"PUT","service":"user-service","url":"/requests/status/6436ddb190c8692b99d1ed40"}
+{"date":"2023-04-13T16:50:19.072Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/requests/get"}
+{"date":"2023-04-13T16:50:47.369Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/requests/get"}
+{"date":"2023-04-13T16:51:16.885Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/requests/get"}
+{"date":"2023-04-13T16:51:32.624Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/requests/get"}
+{"date":"2023-04-13T16:52:38.337Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/requests/get"}
+{"date":"2023-04-13T16:52:49.661Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/requests/get"}
+{"date":"2023-04-13T16:53:16.151Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/requests/get"}
+{"date":"2023-04-13T16:53:21.620Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/requests/get"}
+{"date":"2023-04-13T16:53:35.239Z","level":"info","message":"Request received","method":"PUT","service":"user-service","url":"/requests/status/6436ddb190c8692b99d1ed40"}
+{"date":"2023-04-13T16:53:36.095Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/requests/get"}
+{"date":"2023-04-13T16:53:40.236Z","level":"info","message":"Request received","method":"PUT","service":"user-service","url":"/requests/status/6436ddb190c8692b99d1ed40"}
+{"date":"2023-04-13T16:53:40.909Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/requests/get"}
+{"date":"2023-04-13T16:54:37.718Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/requests/get"}
+{"date":"2023-04-13T16:54:42.911Z","level":"info","message":"Request received","method":"PUT","service":"user-service","url":"/requests/status/6436ddb190c8692b99d1ed40"}
+{"date":"2023-04-13T16:54:43.681Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/requests/get"}
+{"date":"2023-04-13T16:54:46.521Z","level":"info","message":"Request received","method":"PUT","service":"user-service","url":"/requests/status/6436ddb190c8692b99d1ed40"}
+{"date":"2023-04-13T16:54:47.367Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/requests/get"}
+{"date":"2023-04-13T16:54:50.932Z","level":"info","message":"Request received","method":"PUT","service":"user-service","url":"/requests/status/6436de48a8ee0acd2123ff1d"}
+{"date":"2023-04-13T16:54:51.872Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/requests/get"}
+{"date":"2023-04-13T16:55:28.307Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/requests/get"}
+{"date":"2023-04-13T16:55:52.851Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/requests/get"}
+{"date":"2023-04-13T17:00:09.179Z","level":"info","message":"Request received","method":"POST","service":"user-service","url":"/auth/login"}
+{"date":"2023-04-13T17:00:09.564Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/requests/get"}
+{"date":"2023-04-13T17:17:08.510Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/requests/get"}
+{"date":"2023-04-13T17:19:23.671Z","level":"info","message":"Request received","method":"POST","service":"user-service","url":"/auth/login"}
+{"date":"2023-04-13T17:19:24.129Z","level":"error","message":"Invalid credentials","method":"POST","service":"user-service","url":"/login"}
+{"date":"2023-04-13T17:19:33.410Z","level":"info","message":"Request received","method":"POST","service":"user-service","url":"/auth/login"}
+{"date":"2023-04-13T17:19:33.846Z","level":"error","message":"Invalid credentials","method":"POST","service":"user-service","url":"/login"}
+{"date":"2023-04-13T17:21:48.138Z","level":"info","message":"Request received","method":"POST","service":"user-service","url":"/auth/register"}
+{"date":"2023-04-13T17:21:48.138Z","level":"error","message":"Password must contain atleast one uppercase letter, one special character and one number","method":"POST","service":"user-service","url":"/register"}
+{"date":"2023-04-13T17:21:58.232Z","level":"info","message":"Request received","method":"POST","service":"user-service","url":"/auth/register"}
+{"date":"2023-04-13T17:22:02.506Z","level":"info","message":"Request received","method":"POST","service":"user-service","url":"/auth/login"}
+{"date":"2023-04-13T17:22:02.939Z","level":"error","message":"Email not verified","method":"POST","service":"user-service","url":"/login"}
+{"date":"2023-04-13T17:22:49.671Z","level":"info","message":"Request received","method":"POST","service":"user-service","url":"/auth/login"}
+{"date":"2023-04-13T17:22:50.022Z","level":"error","message":"Email not verified","method":"POST","service":"user-service","url":"/login"}
+{"date":"2023-04-13T17:27:02.250Z","level":"info","message":"Request received","method":"POST","service":"user-service","url":"/auth/register"}
+{"date":"2023-04-13T17:27:07.141Z","level":"info","message":"Request received","method":"POST","service":"user-service","url":"/auth/login"}
+{"date":"2023-04-13T17:27:07.579Z","level":"error","message":"Email not verified","method":"POST","service":"user-service","url":"/login"}
+{"date":"2023-04-13T17:27:34.039Z","level":"info","message":"Request received","method":"POST","service":"user-service","url":"/auth/forgotPassword"}
+{"date":"2023-04-13T17:27:35.751Z","level":"error","message":"The provided authorization grant is invalid, expired, or revoked","method":"POST","service":"user-service","url":"/forgotPassword"}
+{"date":"2023-04-13T17:30:14.213Z","level":"info","message":"Request received","method":"POST","service":"user-service","url":"/auth/login"}
+{"date":"2023-04-13T17:30:14.551Z","level":"error","message":"Email not verified","method":"POST","service":"user-service","url":"/login"}
+{"date":"2023-04-13T17:54:14.270Z","level":"info","message":"Request received","method":"POST","service":"user-service","url":"/auth/login"}
+{"date":"2023-04-13T17:54:14.654Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/requests/get"}
+{"date":"2023-04-13T17:54:35.095Z","level":"info","message":"Request received","method":"POST","service":"user-service","url":"/auth/login"}
+{"date":"2023-04-13T17:54:35.540Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/requests/get"}
+{"date":"2023-04-13T17:55:22.605Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/requests/get"}
+{"date":"2023-04-13T17:55:30.092Z","level":"info","message":"Request received","method":"PUT","service":"user-service","url":"/requests/status/6436ddb190c8692b99d1ed40"}
+{"date":"2023-04-13T17:55:31.332Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/requests/get"}
+{"date":"2023-04-13T17:55:37.655Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/requests/get"}
+{"date":"2023-04-13T17:56:15.964Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/requests/get"}
+{"date":"2023-04-13T17:56:19.046Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/requests/get"}
+{"date":"2023-04-13T17:56:25.931Z","level":"info","message":"Request received","method":"PUT","service":"user-service","url":"/requests/status/6436ddb190c8692b99d1ed40"}
+{"date":"2023-04-13T17:56:26.850Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/requests/get"}
+{"date":"2023-04-13T17:58:16.744Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/requests/get"}
+{"date":"2023-04-13T17:58:26.051Z","level":"info","message":"Request received","method":"PUT","service":"user-service","url":"/requests/status/6437996fa5e3a22b23ba199e"}
+{"date":"2023-04-13T17:58:26.688Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/requests/get"}
+{"date":"2023-04-13T17:58:38.694Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/requests/get"}
+{"date":"2023-04-13T18:02:40.677Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/requests/getOngoing"}
+{"date":"2023-04-13T18:06:57.759Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/requests/get"}
+{"date":"2023-04-13T18:07:03.718Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/requests/get"}
+{"date":"2023-04-13T18:07:10.837Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/requests/getOngoing"}
+{"date":"2023-04-13T18:07:27.265Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/requests/getOngoing"}
+{"date":"2023-04-13T18:08:51.490Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/requests/getOngoing"}
+{"date":"2023-04-13T18:09:11.125Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/requests/getOngoing"}

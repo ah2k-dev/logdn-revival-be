@@ -35,7 +35,7 @@ const getRequests = async (req, res) => {
       const requests = await request.find({
         isActive: true,
         // $where: "this.status != 'ongoing'",
-        status: { $ne: "ongoing" },
+        status: { $ne: "paymentVerified" },
       });
       if (!requests) {
         return ErrorHandler("No requests found", 400, req, res);
@@ -50,7 +50,7 @@ const getRequests = async (req, res) => {
         user: userId,
         isActive: true,
         // $where: "this.status != 'ongoing'",
-        status: { $ne: "ongoing" },
+        status: { $ne: "paymentVerified" },
       });
       if (!requests) {
         return ErrorHandler("No requests found", 400, req, res);
@@ -74,7 +74,7 @@ const getOngoingStays = async (req, res) => {
     if (req.user.role == "admin") {
       const requests = await request.find({
         isActive: true,
-        status: "ongoing",
+        status: "paymentVerified",
       });
       if (!requests) {
         return ErrorHandler("No requests found", 400, req, res);
@@ -88,7 +88,7 @@ const getOngoingStays = async (req, res) => {
       const requests = await request.find({
         user: userId,
         isActive: true,
-        status: "ongoing",
+        status: "paymentVerified",
       });
       if (!requests) {
         return ErrorHandler("No requests found", 400, req, res);
@@ -154,9 +154,9 @@ const handleStatus = async (req, res) => {
   try {
     const { id } = req.params;
     const { status } = req.body;
-    const request = await request.findById(id);
-    if (!request) {
-      return ErrorHandler("No request found", 400, req, res);
+    const newReuest = await request.findById(id);
+    if (!newReuest) {
+      return ErrorHandler("No newReuest found", 400, req, res);
     }
     if(status == "completed"){
       const {offerings} = req.body;
@@ -167,12 +167,12 @@ const handleStatus = async (req, res) => {
       if(!newOfferings){
         return ErrorHandler("Offerings not created", 400, req, res);
       }
-      request.offerings = newOfferings.map(val => val._id);
+      newReuest.offerings = newOfferings.map(val => val._id);
     }
-    request.status = status;
-    await request.save();
+    newReuest.status = status;
+    await newReuest.save();
     return SuccessHandler(
-      { message: "Request status updated successfully", request },
+      { message: "Request status updated successfully", newReuest },
       200,
       res
     );
