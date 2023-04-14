@@ -1,12 +1,13 @@
 const request = require("../models/Booking/request");
 const ErrorHandler = require("../utils/ErrorHandler");
+const SuccessHandler = require("../utils/SuccessHandler");
 
 const bookOffer = async (req, res) => {
   // #swagger.tags = ['booking']
   try {
-    const { request, offering } = req.body;
+    const { requestId, offering } = req.body;
     const bookedReq = await request.findByIdAndUpdate(
-      request,
+      requestId,
       {
         // status: "payentVerified",
         bookedOffering: offering,

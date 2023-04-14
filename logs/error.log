@@ -35,3 +35,20 @@
 {"date":"2023-04-13T17:27:35.751Z","level":"error","message":"The provided authorization grant is invalid, expired, or revoked","method":"POST","service":"user-service","url":"/forgotPassword"}
 {"date":"2023-04-13T17:30:14.551Z","level":"error","message":"Email not verified","method":"POST","service":"user-service","url":"/login"}
 {"date":"2023-04-13T18:19:27.533Z","level":"error","message":"Invalid credentials","method":"POST","service":"user-service","url":"/login"}
+{"date":"2023-04-14T16:40:03.107Z","level":"error","message":"request.findByIdAndUpdate is not a function","method":"POST","service":"user-service","url":"/bookOffer"}
+{"date":"2023-04-14T16:40:59.510Z","level":"error","message":"SuccessHandler is not defined","method":"POST","service":"user-service","url":"/bookOffer"}
+{"date":"2023-04-14T17:52:27.067Z","level":"error","message":"Invalid credentials","method":"POST","service":"user-service","url":"/login"}
+{"date":"2023-04-14T17:52:33.532Z","level":"error","message":"Email not verified","method":"POST","service":"user-service","url":"/login"}
+{"date":"2023-04-14T17:52:46.358Z","level":"error","message":"The provided authorization grant is invalid, expired, or revoked","method":"POST","service":"user-service","url":"/forgotPassword"}
+{"date":"2023-04-14T17:55:46.645Z","level":"error","message":"Email not verified","method":"POST","service":"user-service","url":"/login"}
+{"date":"2023-04-14T17:56:19.726Z","level":"error","message":"User does not exist","method":"POST","service":"user-service","url":"/forgotPassword"}
+{"date":"2023-04-14T17:57:45.845Z","level":"error","message":"User does not exist","method":"POST","service":"user-service","url":"/forgotPassword"}
+{"date":"2023-04-14T17:58:40.055Z","level":"error","message":"User does not exist","method":"POST","service":"user-service","url":"/forgotPassword"}
+{"date":"2023-04-14T17:59:11.049Z","level":"error","message":"User does not exist","method":"POST","service":"user-service","url":"/forgotPassword"}
+{"date":"2023-04-14T18:00:25.797Z","level":"error","message":"User does not exist","method":"POST","service":"user-service","url":"/forgotPassword"}
+{"date":"2023-04-14T18:00:31.018Z","level":"error","message":"User does not exist","method":"POST","service":"user-service","url":"/forgotPassword"}
+{"date":"2023-04-14T18:00:57.438Z","level":"error","message":"User does not exist","method":"POST","service":"user-service","url":"/forgotPassword"}
+{"date":"2023-04-14T18:01:37.111Z","level":"error","message":"User does not exist","method":"POST","service":"user-service","url":"/forgotPassword"}
+{"date":"2023-04-14T18:01:56.933Z","level":"error","message":"User does not exist","method":"POST","service":"user-service","url":"/forgotPassword"}
+{"date":"2023-04-14T18:02:32.059Z","level":"error","message":"User does not exist","method":"POST","service":"user-service","url":"/forgotPassword"}
+{"date":"2023-04-14T18:03:07.848Z","level":"error","message":"The provided authorization grant is invalid, expired, or revoked","method":"POST","service":"user-service","url":"/requestEmailToken"}

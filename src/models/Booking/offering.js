@@ -17,15 +17,15 @@ const offeringSchema = new Schema({
     rates: {
         single: {
             type: Number,
-            required: true,
+            // required: true,
         },
         double: {
             type: Number,
-            required: true,
+            // required: true,
         },
         animalSupport: {
             type: Number,
-            required: true,
+            // required: true,
         },
     },
     paymentLink: {

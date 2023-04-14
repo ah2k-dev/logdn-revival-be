@@ -36,7 +36,7 @@ const getRequests = async (req, res) => {
         isActive: true,
         // $where: "this.status != 'ongoing'",
         status: { $ne: "paymentVerified" },
-      }).populate("offerings")
+      }).populate("offerings").populate("bookedOffering")
       if (!requests) {
         return ErrorHandler("No requests found", 400, req, res);
       }
@@ -51,7 +51,7 @@ const getRequests = async (req, res) => {
         isActive: true,
         // $where: "this.status != 'ongoing'",
         status: { $ne: "paymentVerified" },
-      }).populate("offerings")
+      }).populate("offerings").populate("bookedOffering")
       if (!requests) {
         return ErrorHandler("No requests found", 400, req, res);
       }
@@ -75,7 +75,7 @@ const getOngoingStays = async (req, res) => {
       const requests = await request.find({
         isActive: true,
         status: "paymentVerified",
-      });
+      }).populate("offerings").populate("bookedOffering")
       if (!requests) {
         return ErrorHandler("No requests found", 400, req, res);
       }
@@ -89,7 +89,7 @@ const getOngoingStays = async (req, res) => {
         user: userId,
         isActive: true,
         status: "paymentVerified",
-      });
+      }).populate("offerings").populate("bookedOffering")
       if (!requests) {
         return ErrorHandler("No requests found", 400, req, res);
       }
