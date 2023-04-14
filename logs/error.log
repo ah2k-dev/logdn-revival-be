@@ -34,3 +34,4 @@
 {"date":"2023-04-13T17:27:07.579Z","level":"error","message":"Email not verified","method":"POST","service":"user-service","url":"/login"}
 {"date":"2023-04-13T17:27:35.751Z","level":"error","message":"The provided authorization grant is invalid, expired, or revoked","method":"POST","service":"user-service","url":"/forgotPassword"}
 {"date":"2023-04-13T17:30:14.551Z","level":"error","message":"Email not verified","method":"POST","service":"user-service","url":"/login"}
+{"date":"2023-04-13T18:19:27.533Z","level":"error","message":"Invalid credentials","method":"POST","service":"user-service","url":"/login"}

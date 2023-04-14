@@ -36,7 +36,7 @@ const getRequests = async (req, res) => {
         isActive: true,
         // $where: "this.status != 'ongoing'",
         status: { $ne: "paymentVerified" },
-      });
+      }).populate("offerings")
       if (!requests) {
         return ErrorHandler("No requests found", 400, req, res);
       }
@@ -51,7 +51,7 @@ const getRequests = async (req, res) => {
         isActive: true,
         // $where: "this.status != 'ongoing'",
         status: { $ne: "paymentVerified" },
-      });
+      }).populate("offerings")
       if (!requests) {
         return ErrorHandler("No requests found", 400, req, res);
       }

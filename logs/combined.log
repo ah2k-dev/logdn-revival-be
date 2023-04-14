@@ -331,3 +331,8 @@
 {"date":"2023-04-13T18:07:27.265Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/requests/getOngoing"}
 {"date":"2023-04-13T18:08:51.490Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/requests/getOngoing"}
 {"date":"2023-04-13T18:09:11.125Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/requests/getOngoing"}
+{"date":"2023-04-13T18:19:27.114Z","level":"info","message":"Request received","method":"POST","service":"user-service","url":"/auth/login"}
+{"date":"2023-04-13T18:19:27.533Z","level":"error","message":"Invalid credentials","method":"POST","service":"user-service","url":"/login"}
+{"date":"2023-04-13T18:19:32.662Z","level":"info","message":"Request received","method":"POST","service":"user-service","url":"/auth/login"}
+{"date":"2023-04-13T18:19:33.076Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/requests/get"}
+{"date":"2023-04-13T18:19:42.812Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/requests/getOngoing"}

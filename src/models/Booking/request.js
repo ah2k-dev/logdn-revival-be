@@ -49,6 +49,10 @@ const requestSchema = new Schema({
     type: [Schema.Types.ObjectId],
     ref: "offering",
   },
+  bookedOffering: {
+    type: Schema.Types.ObjectId,
+    ref: "offering",
+  },
   isActive: {
     type: Boolean,
     default: true,
