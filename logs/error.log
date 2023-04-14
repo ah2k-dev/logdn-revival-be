@@ -52,3 +52,7 @@
 {"date":"2023-04-14T18:01:56.933Z","level":"error","message":"User does not exist","method":"POST","service":"user-service","url":"/forgotPassword"}
 {"date":"2023-04-14T18:02:32.059Z","level":"error","message":"User does not exist","method":"POST","service":"user-service","url":"/forgotPassword"}
 {"date":"2023-04-14T18:03:07.848Z","level":"error","message":"The provided authorization grant is invalid, expired, or revoked","method":"POST","service":"user-service","url":"/requestEmailToken"}
+{"date":"2023-04-14T18:49:01.329Z","level":"error","message":"Email not verified","method":"POST","service":"user-service","url":"/login"}
+{"date":"2023-04-14T18:50:11.936Z","level":"error","message":"Invalid token","method":"PUT","service":"user-service","url":"/resetPassword"}
+{"date":"2023-04-14T18:50:14.607Z","level":"error","message":"Invalid token","method":"PUT","service":"user-service","url":"/resetPassword"}
+{"date":"2023-04-14T18:52:59.598Z","level":"error","message":"Email not verified","method":"POST","service":"user-service","url":"/login"}

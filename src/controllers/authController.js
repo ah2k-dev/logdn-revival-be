@@ -79,7 +79,7 @@ const verifyEmail = async (req, res) => {
       });
     }
     if (
-      user.emailVerificationToken !== emailVerificationToken ||
+      user.emailVerificationToken != emailVerificationToken ||
       user.emailVerificationTokenExpires < Date.now()
     ) {
       return ErrorHandler("Invalid token", 400, req, res);
@@ -191,7 +191,7 @@ const resetPassword = async (req, res) => {
       return ErrorHandler("User does not exist", 400, req, res);
     }
     if (
-      user.passwordResetToken !== passwordResetToken ||
+      user.passwordResetToken != passwordResetToken ||
       user.passwordResetTokenExpires < Date.now()
     ) {
       return ErrorHandler("Invalid token", 400, req, res);
