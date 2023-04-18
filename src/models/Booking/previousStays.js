@@ -7,11 +7,11 @@ const previousStaySchema = new Schema({
         ref: "request",
         required: true,
     },
-    offering: {
-        type: Schema.Types.ObjectId,
-        ref: "offering",
-        required: true,
-    },
+    // offering: {
+    //     type: Schema.Types.ObjectId,
+    //     ref: "offering",
+    //     required: true,
+    // },
     user: {
         type: Schema.Types.ObjectId,
         ref: "user",

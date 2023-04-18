@@ -1,4 +1,5 @@
 const offering = require("../models/Booking/offering");
+const previousStay = require("../models/Booking/previousStays");
 const request = require("../models/Booking/request");
 const ErrorHandler = require("../utils/ErrorHandler");
 const SuccessHandler = require("../utils/SuccessHandler");
@@ -32,11 +33,14 @@ const getRequests = async (req, res) => {
   try {
     const userId = req.user._id;
     if (req.user.role == "admin") {
-      const requests = await request.find({
-        isActive: true,
-        // $where: "this.status != 'ongoing'",
-        status: { $ne: "paymentVerified" },
-      }).populate("offerings").populate("bookedOffering")
+      const requests = await request
+        .find({
+          isActive: true,
+          // $where: "this.status != 'ongoing'",
+          status: { $ne: "paymentVerified" },
+        })
+        .populate("offerings")
+        .populate("bookedOffering");
       if (!requests) {
         return ErrorHandler("No requests found", 400, req, res);
       }
@@ -46,12 +50,15 @@ const getRequests = async (req, res) => {
         res
       );
     } else if (req.user.role == "user") {
-      const requests = await request.find({
-        user: userId,
-        isActive: true,
-        // $where: "this.status != 'ongoing'",
-        status: { $ne: "paymentVerified" },
-      }).populate("offerings").populate("bookedOffering")
+      const requests = await request
+        .find({
+          user: userId,
+          isActive: true,
+          // $where: "this.status != 'ongoing'",
+          status: { $ne: "paymentVerified" },
+        })
+        .populate("offerings")
+        .populate("bookedOffering");
       if (!requests) {
         return ErrorHandler("No requests found", 400, req, res);
       }
@@ -72,10 +79,13 @@ const getOngoingStays = async (req, res) => {
   try {
     const userId = req.user._id;
     if (req.user.role == "admin") {
-      const requests = await request.find({
-        isActive: true,
-        status: "paymentVerified",
-      }).populate("offerings").populate("bookedOffering")
+      const requests = await request
+        .find({
+          isActive: true,
+          status: "paymentVerified",
+        })
+        .populate("offerings")
+        .populate("bookedOffering");
       if (!requests) {
         return ErrorHandler("No requests found", 400, req, res);
       }
@@ -85,11 +95,14 @@ const getOngoingStays = async (req, res) => {
         res
       );
     } else if (req.user.role == "user") {
-      const requests = await request.find({
-        user: userId,
-        isActive: true,
-        status: "paymentVerified",
-      }).populate("offerings").populate("bookedOffering")
+      const requests = await request
+        .find({
+          user: userId,
+          isActive: true,
+          status: "paymentVerified",
+        })
+        .populate("offerings")
+        .populate("bookedOffering");
       if (!requests) {
         return ErrorHandler("No requests found", 400, req, res);
       }
@@ -158,21 +171,52 @@ const handleStatus = async (req, res) => {
     if (!newReuest) {
       return ErrorHandler("No newReuest found", 400, req, res);
     }
-    if(status == "completed"){
-      const {offerings} = req.body;
-      if(!offerings || offerings.length == 0){
+    if (status == "completed") {
+      const { offerings } = req.body;
+      if (!offerings || offerings.length == 0) {
         return ErrorHandler("No offerings provided", 400, req, res);
       }
       const newOfferings = await offering.insertMany(offerings);
-      if(!newOfferings){
+      if (!newOfferings) {
         return ErrorHandler("Offerings not created", 400, req, res);
       }
-      newReuest.offerings = newOfferings.map(val => val._id);
+      newReuest.offerings = newOfferings.map((val) => val._id);
     }
     newReuest.status = status;
     await newReuest.save();
     return SuccessHandler(
       { message: "Request status updated successfully", newReuest },
+      200,
+      res
+    );
+  } catch (error) {
+    return ErrorHandler(error.message, 500, req, res);
+  }
+};
+
+const getPreviousStays = async (req, res) => {
+  // #swagger.tags = ['requests']
+  try {
+    const userId = req.user._id;
+    const stays = await previousStay
+      .find({
+        user: userId,
+      })
+      .populate("user")
+      // .populate("offerings")
+      // .populate("bookedOffering");
+      .populate({
+        path: "request",
+        populate: {
+          path: "bookedOffering",
+        },
+      });
+    if (!stays) {
+      return ErrorHandler("No stays found", 400, req, res);
+    }
+
+    return SuccessHandler(
+      { message: "Stays found successfully", stays },
       200,
       res
     );
@@ -189,4 +233,5 @@ module.exports = {
   deleteRequest,
   getOngoingStays,
   handleStatus,
+  getPreviousStays,
 };
