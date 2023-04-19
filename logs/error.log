@@ -56,3 +56,4 @@
 {"date":"2023-04-14T18:50:11.936Z","level":"error","message":"Invalid token","method":"PUT","service":"user-service","url":"/resetPassword"}
 {"date":"2023-04-14T18:50:14.607Z","level":"error","message":"Invalid token","method":"PUT","service":"user-service","url":"/resetPassword"}
 {"date":"2023-04-14T18:52:59.598Z","level":"error","message":"Email not verified","method":"POST","service":"user-service","url":"/login"}
+{"date":"2023-04-19T15:46:18.407Z","level":"error","message":"Can't use $and with String.","method":"GET","service":"user-service","url":"/get"}

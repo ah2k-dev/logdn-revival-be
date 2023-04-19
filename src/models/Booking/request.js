@@ -43,7 +43,7 @@ const requestSchema = new Schema({
   status: {
     type: String,
     default: "recieved",
-    enum: ["recieved", "negotiating", "completed", "paymentVerified"],
+    enum: ["recieved", "negotiating", "completed", "paymentVerified", "rejected"], 
   },
   offerings: {
     type: [Schema.Types.ObjectId],
@@ -56,6 +56,10 @@ const requestSchema = new Schema({
   isActive: {
     type: Boolean,
     default: true,
+  },
+  updateRequested: {
+    type: Boolean,
+    default: false,
   },
 });
 

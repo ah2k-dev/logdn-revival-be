@@ -37,7 +37,11 @@ const getRequests = async (req, res) => {
         .find({
           isActive: true,
           // $where: "this.status != 'ongoing'",
-          status: { $ne: "paymentVerified" },
+          // status: { $and: { $ne: "paymentVerified", $ne: "rejected" } },
+          $and: [
+            { status: { $ne: "paymentVerified" } },
+            { status: { $ne: "rejected" } },
+          ],
         })
         .populate("offerings")
         .populate("bookedOffering");
@@ -55,7 +59,11 @@ const getRequests = async (req, res) => {
           user: userId,
           isActive: true,
           // $where: "this.status != 'ongoing'",
-          status: { $ne: "paymentVerified" },
+          // status: { $and: { $ne: "paymentVerified", $ne: "rejected" } },
+          $and: [
+            { status: { $ne: "paymentVerified" } },
+            { status: { $ne: "rejected" } },
+          ],
         })
         .populate("offerings")
         .populate("bookedOffering");
@@ -225,6 +233,75 @@ const getPreviousStays = async (req, res) => {
   }
 };
 
+const rejectRequest = async (req, res) => {
+  // #swagger.tags = ['requests']
+  try {
+    const { id } = req.params;
+    const exRequest = await request.findByIdAndUpdate(
+      id,
+      { status: "rejected" },
+      { new: true }
+    );
+    if (!exRequest) {
+      return ErrorHandler("No request found", 400, req, res);
+    }
+    return SuccessHandler(
+      { message: "Request rejected successfully", exRequest },
+      200,
+      res
+    );
+  } catch (error) {
+    return ErrorHandler(error.message, 500, req, res);
+  }
+};
+
+const getRejectedRequests = async (req, res) => {
+  // #swagger.tags = ['requests']
+  try {
+    const userId = req.user._id;
+    if (req.user.role == "admin") {
+      const requests = await request
+
+        .find({
+          isActive: true,
+          status: "rejected",
+        })
+        .populate("offerings")
+        .populate("bookedOffering");
+      if (!requests) {
+        return ErrorHandler("No requests found", 400, req, res);
+      }
+      return SuccessHandler(
+        { message: "Requests found successfully", requests },
+        200,
+        res
+      );
+    } else if (req.user.role == "user") {
+      const requests = await request
+
+        .find({
+          user: userId,
+          isActive: true,
+          status: "rejected",
+        })
+        .populate("offerings")
+        .populate("bookedOffering");
+      if (!requests) {
+        return ErrorHandler("No requests found", 400, req, res);
+      }
+      return SuccessHandler(
+        { message: "Requests found successfully", requests },
+        200,
+        res
+      );
+    } else {
+      return ErrorHandler("Invalid user role", 400, req, res);
+    }
+  } catch (error) {
+    return ErrorHandler(error.message, 500, req, res);
+  }
+};
+
 module.exports = {
   createRequest,
   getRequests,
@@ -234,4 +311,6 @@ module.exports = {
   getOngoingStays,
   handleStatus,
   getPreviousStays,
+  rejectRequest,
+  getRejectedRequests,
 };
