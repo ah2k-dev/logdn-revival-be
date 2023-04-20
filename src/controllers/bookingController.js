@@ -37,6 +37,15 @@ const requestBookingUpdate = async (req, res) => {
       dateRange,
       roomRequirements,
     });
+    await request.findByIdAndUpdate(
+      request,
+      {
+        $set: {
+          updateRequested: true,
+        },
+      },
+      { new: true }
+    );
     if (!exRequestUpdate) {
       return ErrorHandler("Request not found", 400, req, res);
     }
@@ -131,7 +140,6 @@ const getRequestUpdates = async (req, res) => {
 const getReports = async (req, res) => {
   // #swagger.tags = ['booking']
   try {
-    
   } catch (error) {
     return ErrorHandler(error.message, 500, req, res);
   }
