@@ -31,11 +31,12 @@ const bookOffer = async (req, res) => {
 const requestBookingUpdate = async (req, res) => {
   // #swagger.tags = ['booking']
   try {
-    const { request, dateRange, roomRequirements } = req.body;
+    const { request, dateRange, roomRequirements, roaster } = req.body;
     const exRequestUpdate = await requestUpdate.create({
       request,
       dateRange,
       roomRequirements,
+      roaster,
     });
     await request.findByIdAndUpdate(
       request,
@@ -140,6 +141,36 @@ const getRequestUpdates = async (req, res) => {
 const getReports = async (req, res) => {
   // #swagger.tags = ['booking']
   try {
+    const user = req.user;
+    let pipeline = [];
+    // if (user.role == "admin") {
+    //   pipeline = [
+    //     {
+    //       $match: {
+    //         isActive: true,
+    //       },
+    //     },
+    //     {
+    //       $group: {
+    //         _id: "$user",
+
+    //     }
+    //   ]
+    // } else if (user.role == "user") {
+    //   pipeline = [
+    //     {
+    //       $match: {
+    //         user: user._id,
+    //         isActive: true,
+    //       },
+    //     },
+    //     {
+
+    //     }
+    //   ]
+    // } else {
+    //   return ErrorHandler("Invalid user", 400, req, res);
+    // }
   } catch (error) {
     return ErrorHandler(error.message, 500, req, res);
   }

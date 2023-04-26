@@ -62,6 +62,9 @@ const requestUpdateSchema = new Schema({
     type: Boolean,
     default: true,
   },
+  roaster: {
+    type: String,
+  }
 });
 
 const requestUpdate = mongoose.model("requestUpdate", requestUpdateSchema);
