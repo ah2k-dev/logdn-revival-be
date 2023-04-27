@@ -7,6 +7,7 @@ router.route('/bookOffer').post(isAuthenticated, userAuth, bookingController.boo
 router.route('/requestUpdate').post(isAuthenticated, userAuth, bookingController.requestBookingUpdate);
 router.route('/approveRejectUpdate').put(isAuthenticated, adminAuth, bookingController.approveRejctUpdate);
 router.route('/getRequestUpdates').get(isAuthenticated, bookingController.getRequestUpdates);
+router.route('/getReports').get(isAuthenticated, bookingController.getReports);
 
 // router.route('/getReports').get(isAuthenticated, adminAuth, bookingController.getReports);
 

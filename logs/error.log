@@ -57,3 +57,29 @@
 {"date":"2023-04-14T18:50:14.607Z","level":"error","message":"Invalid token","method":"PUT","service":"user-service","url":"/resetPassword"}
 {"date":"2023-04-14T18:52:59.598Z","level":"error","message":"Email not verified","method":"POST","service":"user-service","url":"/login"}
 {"date":"2023-04-19T15:46:18.407Z","level":"error","message":"Can't use $and with String.","method":"GET","service":"user-service","url":"/get"}
+{"date":"2023-04-27T14:15:33.891Z","level":"error","message":"Unexpected token u in JSON at position 0","method":"POST","service":"user-service","url":"/requestUpdate"}
+{"date":"2023-04-27T14:16:03.806Z","level":"error","message":"Unexpected token u in JSON at position 0","method":"POST","service":"user-service","url":"/requestUpdate"}
+{"date":"2023-04-27T14:17:00.331Z","level":"error","message":"Unexpected token u in JSON at position 0","method":"POST","service":"user-service","url":"/requestUpdate"}
+{"date":"2023-04-27T14:17:34.622Z","level":"error","message":"Unexpected token u in JSON at position 0","method":"POST","service":"user-service","url":"/requestUpdate"}
+{"date":"2023-04-27T14:19:17.963Z","level":"error","message":"requestUpdate validation failed: user: Path `user` is required.","method":"POST","service":"user-service","url":"/requestUpdate"}
+{"date":"2023-04-27T14:19:34.132Z","level":"error","message":"requestUpdate validation failed: user: Path `user` is required.","method":"POST","service":"user-service","url":"/requestUpdate"}
+{"date":"2023-04-27T14:20:44.397Z","level":"error","message":"requestUpdate validation failed: user: Path `user` is required.","method":"POST","service":"user-service","url":"/requestUpdate"}
+{"date":"2023-04-27T14:21:08.055Z","level":"error","message":"requestUpdate validation failed: user: Path `user` is required.","method":"POST","service":"user-service","url":"/requestUpdate"}
+{"date":"2023-04-27T14:22:07.344Z","level":"error","message":"requestUpdate validation failed: user: Path `user` is required.","method":"POST","service":"user-service","url":"/requestUpdate"}
+{"date":"2023-04-27T14:22:23.730Z","level":"error","message":"requestUpdate validation failed: user: Path `user` is required.","method":"POST","service":"user-service","url":"/requestUpdate"}
+{"date":"2023-04-27T14:25:10.293Z","level":"error","message":"Unexpected token u in JSON at position 0","method":"POST","service":"user-service","url":"/requestUpdate"}
+{"date":"2023-04-27T14:26:13.406Z","level":"error","message":"requestUpdate validation failed: user: Path `user` is required.","method":"POST","service":"user-service","url":"/requestUpdate"}
+{"date":"2023-04-27T14:26:48.729Z","level":"error","message":"requestUpdate validation failed: user: Path `user` is required.","method":"POST","service":"user-service","url":"/requestUpdate"}
+{"date":"2023-04-27T14:27:43.976Z","level":"error","message":"Unexpected token u in JSON at position 0","method":"POST","service":"user-service","url":"/requestUpdate"}
+{"date":"2023-04-27T14:28:10.247Z","level":"error","message":"Unexpected token u in JSON at position 0","method":"POST","service":"user-service","url":"/requestUpdate"}
+{"date":"2023-04-27T14:31:47.534Z","level":"error","message":"Unexpected token u in JSON at position 0","method":"POST","service":"user-service","url":"/requestUpdate"}
+{"date":"2023-04-27T14:41:04.538Z","level":"error","message":"ENOENT: no such file or directory, open '/home/ah2k/Documents/GitHub/logdn-revival-be/src/controllers/files/Screens for Ldgn.pdf'","method":"POST","service":"user-service","url":"/requestUpdate"}
+{"date":"2023-04-27T14:41:04.809Z","level":"error","message":"request.findByIdAndUpdate is not a function","method":"POST","service":"user-service","url":"/requestUpdate"}
+{"date":"2023-04-27T14:45:42.438Z","level":"error","message":"requestUpdate validation failed: request: Path `request` is required.","method":"POST","service":"user-service","url":"/requestUpdate"}
+{"date":"2023-04-27T14:46:37.161Z","level":"error","message":"requestUpdate validation failed: request: Path `request` is required.","method":"POST","service":"user-service","url":"/requestUpdate"}
+{"date":"2023-04-27T14:46:55.451Z","level":"error","message":"requestUpdate validation failed: request: Path `request` is required.","method":"POST","service":"user-service","url":"/requestUpdate"}
+{"date":"2023-04-27T14:47:14.498Z","level":"error","message":"requestUpdate validation failed: request: Path `request` is required.","method":"POST","service":"user-service","url":"/requestUpdate"}
+{"date":"2023-04-27T14:48:07.942Z","level":"error","message":"requestUpdate validation failed: request: Path `request` is required.","method":"POST","service":"user-service","url":"/requestUpdate"}
+{"date":"2023-04-27T14:48:33.659Z","level":"error","message":"requestUpdate validation failed: request: Path `request` is required.","method":"POST","service":"user-service","url":"/requestUpdate"}
+{"date":"2023-04-27T16:02:23.253Z","level":"error","message":"paymentVerified is not defined","method":"GET","service":"user-service","url":"/getReports"}
+{"date":"2023-04-27T16:30:24.446Z","level":"error","message":"Cannot set properties of undefined (setting 'Symbol(mongoose#schemaType)')","method":"GET","service":"user-service","url":"/getReports"}

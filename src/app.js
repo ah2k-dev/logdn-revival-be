@@ -9,6 +9,7 @@ const swaggerUi = require("swagger-ui-express");
 const swaggerFile = require("../swagger_output.json"); // Generated Swagger file
 const cron = require("node-cron");
 const { shiftPreviousStays } = require("./functions/cronFunctions");
+const fileUpload = require("express-fileupload");
 
 // Middlewares
 app.use(express.json());
@@ -17,6 +18,7 @@ app.options("*", cors());
 app.use(express.urlencoded({ extended: true }));
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(loggerMiddleware);
+app.use(fileUpload());
 
 // router index
 app.use("/", router);

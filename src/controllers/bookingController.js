@@ -2,6 +2,8 @@ const request = require("../models/Booking/request");
 const requestUpdate = require("../models/Booking/requestUpdates");
 const ErrorHandler = require("../utils/ErrorHandler");
 const SuccessHandler = require("../utils/SuccessHandler");
+const path = require("path");
+const { ObjectId } = require("mongoose").Types;
 
 const bookOffer = async (req, res) => {
   // #swagger.tags = ['booking']
@@ -31,15 +33,28 @@ const bookOffer = async (req, res) => {
 const requestBookingUpdate = async (req, res) => {
   // #swagger.tags = ['booking']
   try {
-    const { request, dateRange, roomRequirements, roaster } = req.body;
+    const { requestId, dateRange, roomRequirements } = req.body;
+    let filepath;
+    if (req.files) {
+      const { roaster } = req.files;
+      // save file in files folder in project root directory
+      filepath = path.join(__dirname, "../../files", roaster.name);
+      roaster.mv(filepath, (err) => {
+        if (err) {
+          console.error(err);
+          return ErrorHandler(err.message, 500, req, res);
+        }
+      });
+    }
     const exRequestUpdate = await requestUpdate.create({
-      request,
-      dateRange,
-      roomRequirements,
-      roaster,
+      request: requestId,
+      dateRange: JSON.parse(dateRange),
+      roomRequirements: JSON.parse(roomRequirements),
+      roaster: filepath ? filepath : null,
+      user: req.user._id,
     });
     await request.findByIdAndUpdate(
-      request,
+      requestId,
       {
         $set: {
           updateRequested: true,
@@ -63,7 +78,7 @@ const requestBookingUpdate = async (req, res) => {
 const approveRejctUpdate = async (req, res) => {
   // #swagger.tags = ['booking']
   try {
-    const { id, status } = req.body;
+    const { id, status, rates } = req.body;
     const exRequestUpdate = await requestUpdate.findByIdAndUpdate(
       id,
       {
@@ -83,10 +98,21 @@ const approveRejctUpdate = async (req, res) => {
           $set: {
             dateRange: exRequestUpdate.dateRange,
             roomRequirements: exRequestUpdate.roomRequirements,
+            // rates: rates
           },
         },
         { new: true }
       );
+      const updatedOffering = await offering.findByIdAndUpdate(
+        updatedRequest.bookedOffering,
+        {
+          $set: {
+            rates: rates,
+          },
+        },
+        { new: true }
+      );
+      console.log(updatedRequest);
       if (!updatedRequest) {
         return ErrorHandler("Request not found", 400, req, res);
       }
@@ -108,6 +134,7 @@ const approveRejctUpdate = async (req, res) => {
 };
 
 const getRequestUpdates = async (req, res) => {
+  // #swagger.tags = ['booking']
   try {
     const user = req.user;
     if (user.role == "admin") {
@@ -142,35 +169,154 @@ const getReports = async (req, res) => {
   // #swagger.tags = ['booking']
   try {
     const user = req.user;
-    let pipeline = [];
-    // if (user.role == "admin") {
-    //   pipeline = [
-    //     {
-    //       $match: {
-    //         isActive: true,
-    //       },
-    //     },
-    //     {
-    //       $group: {
-    //         _id: "$user",
-
-    //     }
-    //   ]
-    // } else if (user.role == "user") {
-    //   pipeline = [
-    //     {
-    //       $match: {
-    //         user: user._id,
-    //         isActive: true,
-    //       },
-    //     },
-    //     {
-
-    //     }
-    //   ]
-    // } else {
-    //   return ErrorHandler("Invalid user", 400, req, res);
-    // }
+    let response;
+    if (user.role == "admin") {
+      response = await request.aggregate([
+        // Match only documents with a bookedOffering
+        {
+          $match: {
+            bookedOffering: { $exists: true },
+            // isActive: true,
+            status: "paymentVerified",
+            // user: ObjectId(user._id),
+          },
+        },
+        {
+          $project: {
+            location: 1,
+            dateRange: 1,
+            bookedOffering: 1,
+            user: 1,
+          },
+        },
+        {
+          $lookup: {
+            from: "users",
+            let: { userId: "$user" },
+            pipeline: [
+              {
+                $match: {
+                  $expr: {
+                    $eq: ["$_id", "$$userId"],
+                  },
+                },
+              },
+            ],
+            as: "user",
+          },
+        },
+        // Lookup the bookedOffering document
+        {
+          $lookup: {
+            from: "offerings",
+            let: { bookedOfferingId: "$bookedOffering" },
+            pipeline: [
+              {
+                $match: {
+                  $expr: {
+                    $eq: ["$_id", "$$bookedOfferingId"],
+                  },
+                },
+              },
+            ],
+            as: "bookedOffering",
+          },
+        },
+        // Unwind the bookedOffering array
+        { $unwind: "$bookedOffering" },
+        { $unwind: "$user" },
+        // Project the desired fields
+        {
+          $project: {
+            request: "$location.string",
+            startDate: { $arrayElemAt: ["$dateRange", 0] },
+            endDate: { $arrayElemAt: ["$dateRange", 1] },
+            totalPaid: {
+              $sum: [
+                { $ifNull: ["$bookedOffering.rates.single", 0] },
+                { $ifNull: ["$bookedOffering.rates.double", 0] },
+                { $ifNull: ["$bookedOffering.rates.animalSupport", 0] },
+              ],
+            },
+            paidPerSingle: { $ifNull: ["$bookedOffering.rates.single", null] },
+            paidPerDouble: { $ifNull: ["$bookedOffering.rates.double", null] },
+            paidPerAnimal: {
+              $ifNull: ["$bookedOffering.rates.animalSupport", null],
+            },
+            user: "$user.name",
+          },
+        },
+      ]);
+    } else if (user.role == "user") {
+      response = await request.aggregate([
+        // Match only documents with a bookedOffering
+        {
+          $match: {
+            bookedOffering: { $exists: true },
+            // isActive: true,
+            status: "paymentVerified",
+            user: ObjectId(user._id),
+          },
+        },
+        {
+          $project: {
+            location: 1,
+            dateRange: 1,
+            bookedOffering: 1,
+          },
+        },
+        // Lookup the bookedOffering document
+        {
+          $lookup: {
+            from: "offerings",
+            let: { bookedOfferingId: "$bookedOffering" },
+            pipeline: [
+              {
+                $match: {
+                  $expr: {
+                    $eq: ["$_id", "$$bookedOfferingId"],
+                  },
+                },
+              },
+            ],
+            as: "bookedOffering",
+          },
+        },
+        // Unwind the bookedOffering array
+        { $unwind: "$bookedOffering" },
+        // Project the desired fields
+        {
+          $project: {
+            request: "$location.string",
+            startDate: { $arrayElemAt: ["$dateRange", 0] },
+            endDate: { $arrayElemAt: ["$dateRange", 1] },
+            totalPaid: {
+              $sum: [
+                { $ifNull: ["$bookedOffering.rates.single", 0] },
+                { $ifNull: ["$bookedOffering.rates.double", 0] },
+                { $ifNull: ["$bookedOffering.rates.animalSupport", 0] },
+              ],
+            },
+            paidPerSingle: { $ifNull: ["$bookedOffering.rates.single", null] },
+            paidPerDouble: { $ifNull: ["$bookedOffering.rates.double", null] },
+            paidPerAnimal: {
+              $ifNull: ["$bookedOffering.rates.animalSupport", null],
+            },
+          },
+        },
+      ]);
+      console.log(response);
+    } else {
+      return ErrorHandler("Invalid user", 400, req, res);
+    }
+    if (!response) {
+      return ErrorHandler("No reports found", 400, req, res);
+    }
+    return SuccessHandler(
+      { message: "Reports found successfully", response },
+      200,
+      res
+    );
   } catch (error) {
     return ErrorHandler(error.message, 500, req, res);
   }
@@ -181,4 +327,5 @@ module.exports = {
   requestBookingUpdate,
   approveRejctUpdate,
   getRequestUpdates,
+  getReports,
 };
