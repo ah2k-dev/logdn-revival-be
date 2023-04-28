@@ -3,7 +3,7 @@ const bookingController = require("../controllers/bookingController.js");
 
 const router = require("express").Router();
 
-router.route('/bookOffer').post(isAuthenticated, userAuth, bookingController.bookOffer);
+router.route('/bookOffer').post(isAuthenticated, adminAuth, bookingController.bookOffer);
 router.route('/requestUpdate').post(isAuthenticated, userAuth, bookingController.requestBookingUpdate);
 router.route('/approveRejectUpdate').put(isAuthenticated, adminAuth, bookingController.approveRejctUpdate);
 router.route('/getRequestUpdates').get(isAuthenticated, bookingController.getRequestUpdates);

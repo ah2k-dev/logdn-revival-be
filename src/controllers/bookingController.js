@@ -4,6 +4,7 @@ const ErrorHandler = require("../utils/ErrorHandler");
 const SuccessHandler = require("../utils/SuccessHandler");
 const path = require("path");
 const { ObjectId } = require("mongoose").Types;
+const offering = require("../models/Booking/offering");
 
 const bookOffer = async (req, res) => {
   // #swagger.tags = ['booking']
@@ -38,8 +39,8 @@ const requestBookingUpdate = async (req, res) => {
     if (req.files) {
       const { roaster } = req.files;
       // save file in files folder in project root directory
-      filepath = path.join(__dirname, "../../files", roaster.name);
-      roaster.mv(filepath, (err) => {
+      filepath = `/files/${roaster.name}`;
+      roaster.mv(path.join(__dirname, "../../files", roaster.name), (err) => {
         if (err) {
           console.error(err);
           return ErrorHandler(err.message, 500, req, res);

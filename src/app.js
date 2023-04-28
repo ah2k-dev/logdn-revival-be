@@ -10,7 +10,7 @@ const swaggerFile = require("../swagger_output.json"); // Generated Swagger file
 const cron = require("node-cron");
 const { shiftPreviousStays } = require("./functions/cronFunctions");
 const fileUpload = require("express-fileupload");
-
+const path = require("path");
 // Middlewares
 app.use(express.json());
 app.use(cors());
@@ -19,6 +19,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(loggerMiddleware);
 app.use(fileUpload());
+app.use('/files', express.static(path.join(__dirname, '../files')));
 
 // router index
 app.use("/", router);
