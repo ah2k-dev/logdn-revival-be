@@ -3,7 +3,7 @@ const user = require("../controllers/userController");
 const { isAuthenticated, userAuth, adminAuth } = require("../middleware/auth");
 
 //get
-router.route("/").get(isAuthenticated, user.getUsers);
+router.route("/all").get(isAuthenticated, user.getUsers);
 router.route("/me").get(isAuthenticated, userAuth, user.getMe);
 
 //post

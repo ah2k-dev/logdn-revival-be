@@ -880,3 +880,7 @@
 {"date":"2023-04-28T16:19:00.752Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/booking/getReports"}
 {"date":"2023-04-28T16:20:55.037Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/booking/getReports"}
 {"date":"2023-04-28T16:30:13.461Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/booking/getReports"}
+{"date":"2023-05-03T16:44:02.255Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/user/all"}
+{"date":"2023-05-03T16:46:32.954Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/user/all"}
+{"date":"2023-05-03T16:46:33.525Z","level":"error","message":"User is not defined","method":"GET","service":"user-service","url":"/all"}
+{"date":"2023-05-03T16:47:07.525Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/user/all"}

@@ -87,3 +87,4 @@
 {"date":"2023-04-28T14:44:21.631Z","level":"error","message":"offering is not defined","method":"PUT","service":"user-service","url":"/approveRejectUpdate"}
 {"date":"2023-04-28T15:40:26.227Z","level":"error","message":"ENOENT: no such file or directory, open '/home/ah2k/Documents/GitHub/logdn-revival-be/src/controllers/files/Screens for Ldgn.pdf'","method":"POST","service":"user-service","url":"/requestUpdate"}
 {"date":"2023-04-28T15:40:26.826Z","level":"error","message":"Cannot set headers after they are sent to the client","method":"POST","service":"user-service","url":"/requestUpdate"}
+{"date":"2023-05-03T16:46:33.525Z","level":"error","message":"User is not defined","method":"GET","service":"user-service","url":"/all"}

@@ -1,13 +1,22 @@
+const user = require("../models/User/user");
+// const user = require("../models/User/user");
+// const user = require("../models/User/user");
+// const user = require("../models/User/user");
+const ErrorHandler = require("../utils/ErrorHandler");
+const SuccessHandler = require("../utils/SuccessHandler");
+
 const getUsers = async (req, res) => {
   // #swagger.tags = ['user']
   try {
-    const users = await User.find({
-      role: "user",
-      isActive: true,
-    }).select(
-      "-password -emailVerificationToken -emailVerificationTokenExpires -passwordResetToken -passwordResetTokenExpires"
-    );
-    const moderators = await User.find({
+    const users = await user
+      .find({
+        role: "user",
+        isActive: true,
+      })
+      .select(
+        "-password -emailVerificationToken -emailVerificationTokenExpires -passwordResetToken -passwordResetTokenExpires"
+      );
+    const moderators = await user.find({
       role: "moderator",
       isActive: true,
     }).select(
@@ -31,15 +40,16 @@ const createModerator = async (req, res) => {
   // #swagger.tags = ['user']
   try {
     const { name, email, password, permissions } = req.body;
-    const user = await User.create({
+    const updatedUser = await user.create({
       name,
       email,
       password,
       role: "moderator",
       permissions,
     });
-    if (!user) return ErrorHandler("Failed to create moderator", 400, req, res);
-    return SuccessHandler({ user }, 200, res);
+    if (!updatedUser)
+      return ErrorHandler("Failed to create moderator", 400, req, res);
+    return SuccessHandler({ updatedUser }, 200, res);
   } catch (error) {
     return ErrorHandler(error.message, 500, req, res);
   }
@@ -48,13 +58,14 @@ const updateMe = async (req, res) => {
   // #swagger.tags = ['user']
   try {
     const { name } = req.body;
-    const user = await User.findByIdAndUpdate(
+    const updated = await user.findByIdAndUpdate(
       req.user._id,
       { name },
       { new: true }
     );
-    if (!user) return ErrorHandler("Failed to update user", 400, req, res);
-    return SuccessHandler({ user }, 200, res);
+    if (!updated)
+      return ErrorHandler("Failed to update updated", 400, req, res);
+    return SuccessHandler({ updated }, 200, res);
   } catch (error) {
     return ErrorHandler(error.message, 500, req, res);
   }
@@ -63,13 +74,13 @@ const blockUnblock = async (req, res) => {
   // #swagger.tags = ['user']
   try {
     const { id, status } = req.body;
-    const user = await User.findByIdAndUpdate(
+    const updated = await user.findByIdAndUpdate(
       id,
       { isBlocked: status },
       { new: true }
     );
-    if (!user) return ErrorHandler("Failed to update user", 400, req, res);
-    return SuccessHandler({ user }, 200, res);
+    if (!updated) return ErrorHandler("Failed to update user", 400, req, res);
+    return SuccessHandler({ updated }, 200, res);
   } catch (error) {
     return ErrorHandler(error.message, 500, req, res);
   }
