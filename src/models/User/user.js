@@ -27,7 +27,7 @@ const userSchema = new Schema({
   },
   role: {
     type: String,
-    enum: ["user", "admin"],
+    enum: ["user", "admin", "moderator"],
     default: "user",
   },
   profilePic: {
@@ -60,10 +60,17 @@ const userSchema = new Schema({
     type: Boolean,
     default: true,
   },
+  isBlocked: {
+    type: Boolean,
+    default: false,
+  },
   auth: {
     type: String,
     default: "app",
     enum: ["app", "google"],
+  },
+  permissions: {
+    type: [String],
   },
 });
 

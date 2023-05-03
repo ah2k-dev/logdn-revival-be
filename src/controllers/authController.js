@@ -112,6 +112,9 @@ const login = async (req, res) => {
     if (!user.emailVerified) {
       return ErrorHandler("Email not verified", 400, req, res);
     }
+    if (user?.isBlocked == true) {
+      return ErrorHandler("User is blocked", 400, req, res);
+    }
     let jwtToken = user.getJWTToken();
     delete user.password;
     delete user.emailVerificationToken;
@@ -128,7 +131,12 @@ const login = async (req, res) => {
       });
       newrequest.save();
       return SuccessHandler(
-        { message: "Logged in successfully", jwtToken, newrequest, userData: user },
+        {
+          message: "Logged in successfully",
+          jwtToken,
+          newrequest,
+          userData: user,
+        },
         200,
         res
       );
