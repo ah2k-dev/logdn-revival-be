@@ -66,7 +66,10 @@ const getRequests = async (req, res) => {
           ],
         })
         .populate("offerings")
-        .populate("bookedOffering");
+        .populate("bookedOffering")
+        .sort({
+          createdAt: -1,
+        });
       if (!requests) {
         return ErrorHandler("No requests found", 400, req, res);
       }
@@ -93,7 +96,10 @@ const getOngoingStays = async (req, res) => {
           status: "paymentVerified",
         })
         .populate("offerings")
-        .populate("bookedOffering");
+        .populate("bookedOffering")
+        .sort({
+          createdAt: -1,
+        });
       if (!requests) {
         return ErrorHandler("No requests found", 400, req, res);
       }
@@ -110,7 +116,10 @@ const getOngoingStays = async (req, res) => {
           status: "paymentVerified",
         })
         .populate("offerings")
-        .populate("bookedOffering");
+        .populate("bookedOffering")
+        .sort({
+          createdAt: -1,
+        });
       if (!requests) {
         return ErrorHandler("No requests found", 400, req, res);
       }
@@ -188,9 +197,12 @@ const handleStatus = async (req, res) => {
       if (!newOfferings) {
         return ErrorHandler("Offerings not created", 400, req, res);
       }
-      if(newReuest.offerings && newReuest.offerings.length > 0){
-        newReuest.offerings = [...newReuest.offerings, ...newOfferings.map((val) => val._id)];
-      }else{
+      if (newReuest.offerings && newReuest.offerings.length > 0) {
+        newReuest.offerings = [
+          ...newReuest.offerings,
+          ...newOfferings.map((val) => val._id),
+        ];
+      } else {
         newReuest.offerings = newOfferings.map((val) => val._id);
       }
     }
@@ -271,7 +283,10 @@ const getRejectedRequests = async (req, res) => {
           status: "rejected",
         })
         .populate("offerings")
-        .populate("bookedOffering");
+        .populate("bookedOffering")
+        .sort({
+          createdAt: -1,
+        });
       if (!requests) {
         return ErrorHandler("No requests found", 400, req, res);
       }
@@ -289,7 +304,10 @@ const getRejectedRequests = async (req, res) => {
           status: "rejected",
         })
         .populate("offerings")
-        .populate("bookedOffering");
+        .populate("bookedOffering")
+        .sort({
+          createdAt: -1,
+        });
       if (!requests) {
         return ErrorHandler("No requests found", 400, req, res);
       }
