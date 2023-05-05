@@ -968,3 +968,17 @@
 {"date":"2023-05-04T17:28:50.139Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/requests/get"}
 {"date":"2023-05-04T17:28:55.404Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/requests/get"}
 {"date":"2023-05-04T17:33:21.519Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/requests/get"}
+{"date":"2023-05-05T14:33:21.889Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/requests/get"}
+{"date":"2023-05-05T14:33:22.768Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/requests/get"}
+{"date":"2023-05-05T14:34:57.347Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/requests/get"}
+{"date":"2023-05-05T14:34:58.451Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/requests/get"}
+{"date":"2023-05-05T14:35:29.568Z","level":"info","message":"Request received","method":"PUT","service":"user-service","url":"/requests/status/6455100c00f84eff0b68eebf"}
+{"date":"2023-05-05T14:35:30.484Z","level":"error","message":"newRequest is not defined","method":"PUT","service":"user-service","url":"/status/6455100c00f84eff0b68eebf"}
+{"date":"2023-05-05T14:36:54.431Z","level":"info","message":"Request received","method":"PUT","service":"user-service","url":"/requests/status/6455100c00f84eff0b68eebf"}
+{"date":"2023-05-05T14:36:56.436Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/requests/get"}
+{"date":"2023-05-05T14:42:34.446Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/requests/get"}
+{"date":"2023-05-05T14:42:35.167Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/requests/get"}
+{"date":"2023-05-05T14:43:32.818Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/requests/get"}
+{"date":"2023-05-05T14:43:42.921Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/requests/get"}
+{"date":"2023-05-05T14:46:43.061Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/requests/get"}
+{"date":"2023-05-05T14:48:15.475Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/requests/get"}

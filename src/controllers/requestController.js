@@ -188,7 +188,11 @@ const handleStatus = async (req, res) => {
       if (!newOfferings) {
         return ErrorHandler("Offerings not created", 400, req, res);
       }
-      newReuest.offerings = newOfferings.map((val) => val._id);
+      if(newReuest.offerings && newReuest.offerings.length > 0){
+        newReuest.offerings = [...newReuest.offerings, ...newOfferings.map((val) => val._id)];
+      }else{
+        newReuest.offerings = newOfferings.map((val) => val._id);
+      }
     }
     newReuest.status = status;
     await newReuest.save();

@@ -97,3 +97,4 @@
 {"date":"2023-05-04T16:03:09.939Z","level":"error","message":"Cannot set headers after they are sent to the client","method":"PUT","service":"user-service","url":"/status/6453d184820ab36e09cb7b3c"}
 {"date":"2023-05-04T16:06:07.380Z","level":"error","message":"Cannot set headers after they are sent to the client","method":"PUT","service":"user-service","url":"/status/6453d184820ab36e09cb7b3c"}
 {"date":"2023-05-04T16:07:29.091Z","level":"error","message":"Cannot set headers after they are sent to the client","method":"PUT","service":"user-service","url":"/status/6453d184820ab36e09cb7b3c"}
+{"date":"2023-05-05T14:35:30.484Z","level":"error","message":"newRequest is not defined","method":"PUT","service":"user-service","url":"/status/6455100c00f84eff0b68eebf"}
