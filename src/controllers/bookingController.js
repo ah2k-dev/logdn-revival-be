@@ -138,7 +138,7 @@ const getRequestUpdates = async (req, res) => {
   // #swagger.tags = ['booking']
   try {
     const user = req.user;
-    if (user.role == "admin") {
+    if (user.role == "admin" || user.role == "moderator") {
       const updates = await requestUpdate.find({}).populate("request");
       if (!updates) {
         return ErrorHandler("No updates found", 400, req, res);

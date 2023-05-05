@@ -11,5 +11,6 @@ router.delete("/delete/:id", isAuthenticated, requests.deleteRequest);
 router.put("/status/:id", isAuthenticated, adminAuth, requests.handleStatus);
 router.get("/getPreviousStays", isAuthenticated, userAuth, requests.getPreviousStays);
 router.put("/reject/:id", isAuthenticated, adminAuth, requests.rejectRequest);
+router.put("/updateOffer/:id", isAuthenticated, adminAuth, requests.updateOffer);
 
 module.exports = router;

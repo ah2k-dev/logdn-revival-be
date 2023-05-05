@@ -32,7 +32,7 @@ const getRequests = async (req, res) => {
   // #swagger.tags = ['requests']
   try {
     const userId = req.user._id;
-    if (req.user.role == "admin") {
+    if (req.user.role == "admin" || req.user.role == "moderator") {
       const requests = await request
         .find({
           isActive: true,
@@ -86,7 +86,7 @@ const getOngoingStays = async (req, res) => {
   // #swagger.tags = ['requests']
   try {
     const userId = req.user._id;
-    if (req.user.role == "admin") {
+    if (req.user.role == "admin" || req.user.role == "moderator") {
       const requests = await request
         .find({
           isActive: true,
@@ -302,6 +302,29 @@ const getRejectedRequests = async (req, res) => {
   }
 };
 
+const updateOffer = async (req, res) => {
+  // swagger.tags = ['request']
+  try {
+    const { id } = req.params;
+    const { images, title, description, rates, paymentLink, flag } = req.body;
+    const exOffer = await offering.findByIdAndUpdate(
+      id,
+      { images, title, description, rates, paymentLink, flag },
+      { new: true }
+    );
+    if (!exOffer) {
+      return ErrorHandler(error.message, 500, req, res);
+    }
+    return SuccessHandler(
+      { message: "Offer updated successfully", exOffer },
+      200,
+      res
+    );
+  } catch (error) {
+    return ErrorHandler(error.message, 500, req, res);
+  }
+};
+
 module.exports = {
   createRequest,
   getRequests,
@@ -313,4 +336,5 @@ module.exports = {
   getPreviousStays,
   rejectRequest,
   getRejectedRequests,
+  updateOffer,
 };

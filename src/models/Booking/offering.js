@@ -32,6 +32,10 @@ const offeringSchema = new Schema({
         type: String,
         required: true,
     },
+    flag: {
+        type: Number,
+        required: true,
+    },
 });
 
 const offering = mongoose.model("offering", offeringSchema);
