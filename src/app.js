@@ -27,7 +27,7 @@ app.use("/", router);
 app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerFile));
 
 app.get("/", (req, res) => {
-  res.send("BE-boilerplate v1.1");
+  res.send("Logdn revival api v1");
 });
 
 // send back a 404 error for any unknown api request
