@@ -139,9 +139,16 @@ const getRequestUpdates = async (req, res) => {
   try {
     const user = req.user;
     if (user.role == "admin" || user.role == "moderator") {
-      const updates = await requestUpdate.find({}).populate("request").sort({
-        createdAt: -1,
-      });
+      const updates = await requestUpdate
+        .find({})
+        .populate("request")
+        .populate({
+          path: "user",
+          select: "firstname lastname email phone commpany",
+        })
+        .sort({
+          createdAt: -1,
+        });
       if (!updates) {
         return ErrorHandler("No updates found", 400, req, res);
       }
@@ -153,7 +160,12 @@ const getRequestUpdates = async (req, res) => {
     } else if (user.role == "user") {
       const updates = await requestUpdate
         .find({ user: user._id })
-        .populate("request").sort({
+        .populate("request")
+        .populate({
+          path: "user",
+          select: "firstname lastname email phone commpany",
+        })
+        .sort({
           createdAt: -1,
         });
       if (!updates) {

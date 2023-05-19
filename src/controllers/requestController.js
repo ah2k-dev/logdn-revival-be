@@ -44,7 +44,11 @@ const getRequests = async (req, res) => {
           ],
         })
         .populate("offerings")
-        .populate("bookedOffering");
+        .populate("bookedOffering")
+        .populate({
+          path: "user",
+          select: "firstname lastname email phone commpany",
+        });
       if (!requests) {
         return ErrorHandler("No requests found", 400, req, res);
       }
@@ -67,6 +71,10 @@ const getRequests = async (req, res) => {
         })
         .populate("offerings")
         .populate("bookedOffering")
+        .populate({
+          path: "user",
+          select: "firstname lastname email phone commpany",
+        })
         .sort({
           createdAt: -1,
         });
@@ -97,6 +105,10 @@ const getOngoingStays = async (req, res) => {
         })
         .populate("offerings")
         .populate("bookedOffering")
+        .populate({
+          path: "user",
+          select: "firstname lastname email phone commpany",
+        })
         .sort({
           createdAt: -1,
         });
@@ -117,6 +129,10 @@ const getOngoingStays = async (req, res) => {
         })
         .populate("offerings")
         .populate("bookedOffering")
+        .populate({
+          path: "user",
+          select: "firstname lastname email phone commpany",
+        })
         .sort({
           createdAt: -1,
         });
@@ -139,7 +155,10 @@ const getRequest = async (req, res) => {
   // #swagger.tags = ['requests']
   try {
     const { id } = req.params;
-    const request = request.findById(id).populate("user");
+    const request = request.findById(id).populate({
+      path: "user",
+      select: "firstname lastname email phone commpany",
+    });
     if (!request) {
       return ErrorHandler("No request found", 400, req, res);
     }
@@ -226,7 +245,10 @@ const getPreviousStays = async (req, res) => {
       .find({
         user: userId,
       })
-      .populate("user")
+      .populate({
+        path: "user",
+        select: "firstname lastname email phone commpany",
+      })
       // .populate("offerings")
       // .populate("bookedOffering");
       .populate({
@@ -284,6 +306,10 @@ const getRejectedRequests = async (req, res) => {
         })
         .populate("offerings")
         .populate("bookedOffering")
+        .populate({
+          path: "user",
+          select: "firstname lastname email phone commpany",
+        })
         .sort({
           createdAt: -1,
         });
@@ -305,6 +331,10 @@ const getRejectedRequests = async (req, res) => {
         })
         .populate("offerings")
         .populate("bookedOffering")
+        .populate({
+          path: "user",
+          select: "firstname lastname email phone commpany",
+        })
         .sort({
           createdAt: -1,
         });

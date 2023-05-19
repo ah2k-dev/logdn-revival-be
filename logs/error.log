@@ -98,3 +98,9 @@
 {"date":"2023-05-04T16:06:07.380Z","level":"error","message":"Cannot set headers after they are sent to the client","method":"PUT","service":"user-service","url":"/status/6453d184820ab36e09cb7b3c"}
 {"date":"2023-05-04T16:07:29.091Z","level":"error","message":"Cannot set headers after they are sent to the client","method":"PUT","service":"user-service","url":"/status/6453d184820ab36e09cb7b3c"}
 {"date":"2023-05-05T14:35:30.484Z","level":"error","message":"newRequest is not defined","method":"PUT","service":"user-service","url":"/status/6455100c00f84eff0b68eebf"}
+{"date":"2023-05-18T15:07:20.607Z","level":"error","message":"Password must contain atleast one uppercase letter, one special character and one number","method":"POST","service":"user-service","url":"/register"}
+{"date":"2023-05-18T15:13:33.147Z","level":"error","message":"Password must contain atleast one uppercase letter, one special character and one number","method":"POST","service":"user-service","url":"/register"}
+{"date":"2023-05-18T15:13:59.116Z","level":"error","message":"Password must contain atleast one uppercase letter, one special character and one number","method":"POST","service":"user-service","url":"/register"}
+{"date":"2023-05-18T15:14:30.063Z","level":"error","message":"Password must contain atleast one uppercase letter, one special character and one number","method":"POST","service":"user-service","url":"/register"}
+{"date":"2023-05-18T15:57:28.345Z","level":"error","message":"User already exists","method":"POST","service":"user-service","url":"/register"}
+{"date":"2023-05-18T15:59:15.530Z","level":"error","message":"Password must contain atleast one uppercase letter, one special character and one number","method":"POST","service":"user-service","url":"/register"}
