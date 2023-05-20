@@ -1000,3 +1000,59 @@
 {"date":"2023-05-18T15:59:15.530Z","level":"error","message":"Password must contain atleast one uppercase letter, one special character and one number","method":"POST","service":"user-service","url":"/register"}
 {"date":"2023-05-18T15:59:23.114Z","level":"info","message":"Request received","method":"POST","service":"user-service","url":"/auth/register"}
 {"date":"2023-05-18T15:59:23.811Z","level":"info","message":"Request received","method":"POST","service":"user-service","url":"/auth/requestEmailToken"}
+{"date":"2023-05-20T10:43:34.044Z","level":"info","message":"Request received","method":"POST","service":"user-service","url":"/auth/googleAuth"}
+{"date":"2023-05-20T10:43:34.440Z","level":"error","message":"user validation failed: password: Path `password` is required., company: Path `company` is required., lastname: Path `lastname` is required., firstname: Path `firstname` is required., email: Path `email` is required.","method":"POST","service":"user-service","url":"/googleAuth"}
+{"date":"2023-05-20T10:43:39.808Z","level":"info","message":"Request received","method":"POST","service":"user-service","url":"/auth/googleAuth"}
+{"date":"2023-05-20T10:43:40.060Z","level":"error","message":"user validation failed: password: Path `password` is required., company: Path `company` is required., lastname: Path `lastname` is required., firstname: Path `firstname` is required., email: Path `email` is required.","method":"POST","service":"user-service","url":"/googleAuth"}
+{"date":"2023-05-20T10:50:33.200Z","level":"info","message":"Request received","method":"POST","service":"user-service","url":"/auth/googleAuth"}
+{"date":"2023-05-20T10:50:33.475Z","level":"error","message":"user validation failed: password: Path `password` is required., company: Path `company` is required., firstname: Path `firstname` is required., lastname: Path `lastname` is required., email: Path `email` is required.","method":"POST","service":"user-service","url":"/googleAuth"}
+{"date":"2023-05-20T10:50:50.973Z","level":"info","message":"Request received","method":"POST","service":"user-service","url":"/auth/googleAuth"}
+{"date":"2023-05-20T10:50:51.249Z","level":"error","message":"user validation failed: password: Path `password` is required., company: Path `company` is required., firstname: Path `firstname` is required., lastname: Path `lastname` is required., email: Path `email` is required.","method":"POST","service":"user-service","url":"/googleAuth"}
+{"date":"2023-05-20T10:50:59.171Z","level":"info","message":"Request received","method":"POST","service":"user-service","url":"/auth/googleAuth"}
+{"date":"2023-05-20T10:50:59.469Z","level":"error","message":"user validation failed: password: Path `password` is required., company: Path `company` is required., firstname: Path `firstname` is required., lastname: Path `lastname` is required., email: Path `email` is required.","method":"POST","service":"user-service","url":"/googleAuth"}
+{"date":"2023-05-20T10:53:03.884Z","level":"info","message":"Request received","method":"POST","service":"user-service","url":"/auth/googleAuth"}
+{"date":"2023-05-20T10:53:04.297Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/requests/get"}
+{"date":"2023-05-20T10:53:22.642Z","level":"info","message":"Request received","method":"POST","service":"user-service","url":"/auth/googleAuth"}
+{"date":"2023-05-20T10:53:23.117Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/requests/get"}
+{"date":"2023-05-20T10:55:24.431Z","level":"info","message":"Request received","method":"POST","service":"user-service","url":"/auth/googleAuth"}
+{"date":"2023-05-20T10:55:24.890Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/requests/get"}
+{"date":"2023-05-20T10:56:30.773Z","level":"info","message":"Request received","method":"POST","service":"user-service","url":"/auth/googleAuth"}
+{"date":"2023-05-20T10:56:31.097Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/requests/get"}
+{"date":"2023-05-20T10:56:49.340Z","level":"info","message":"Request received","method":"POST","service":"user-service","url":"/auth/googleAuth"}
+{"date":"2023-05-20T10:56:49.652Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/requests/get"}
+{"date":"2023-05-20T10:58:25.710Z","level":"info","message":"Request received","method":"POST","service":"user-service","url":"/auth/googleAuth"}
+{"date":"2023-05-20T10:58:26.108Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/requests/get"}
+{"date":"2023-05-20T10:59:03.893Z","level":"info","message":"Request received","method":"POST","service":"user-service","url":"/auth/googleAuth"}
+{"date":"2023-05-20T10:59:04.254Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/requests/get"}
+{"date":"2023-05-20T10:59:08.600Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/requests/get"}
+{"date":"2023-05-20T10:59:17.334Z","level":"info","message":"Request received","method":"POST","service":"user-service","url":"/auth/googleAuth"}
+{"date":"2023-05-20T10:59:17.701Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/requests/get"}
+{"date":"2023-05-20T11:00:43.189Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/requests/get"}
+{"date":"2023-05-20T11:00:54.609Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/requests/get"}
+{"date":"2023-05-20T11:05:38.195Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/requests/get"}
+{"date":"2023-05-20T11:05:51.734Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/requests/get"}
+{"date":"2023-05-20T11:06:48.755Z","level":"info","message":"Request received","method":"POST","service":"user-service","url":"/auth/googleAuth"}
+{"date":"2023-05-20T11:06:49.221Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/requests/get"}
+{"date":"2023-05-20T11:06:55.922Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/requests/get"}
+{"date":"2023-05-20T11:07:05.157Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/requests/get"}
+{"date":"2023-05-20T11:08:15.193Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/requests/get"}
+{"date":"2023-05-20T11:09:56.616Z","level":"info","message":"Request received","method":"POST","service":"user-service","url":"/auth/login"}
+{"date":"2023-05-20T11:09:56.830Z","level":"error","message":"User does not exist","method":"POST","service":"user-service","url":"/login"}
+{"date":"2023-05-20T11:10:18.411Z","level":"info","message":"Request received","method":"POST","service":"user-service","url":"/auth/login"}
+{"date":"2023-05-20T11:10:18.659Z","level":"error","message":"User does not exist","method":"POST","service":"user-service","url":"/login"}
+{"date":"2023-05-20T11:10:56.690Z","level":"info","message":"Request received","method":"POST","service":"user-service","url":"/auth/login"}
+{"date":"2023-05-20T11:10:56.957Z","level":"error","message":"User does not exist","method":"POST","service":"user-service","url":"/login"}
+{"date":"2023-05-20T11:12:39.969Z","level":"info","message":"Request received","method":"POST","service":"user-service","url":"/auth/login"}
+{"date":"2023-05-20T11:12:40.450Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/requests/get"}
+{"date":"2023-05-20T11:13:05.982Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/requests/get"}
+{"date":"2023-05-20T11:13:52.397Z","level":"info","message":"Request received","method":"POST","service":"user-service","url":"/auth/login"}
+{"date":"2023-05-20T11:13:52.850Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/requests/get"}
+{"date":"2023-05-20T11:14:52.652Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/requests/get"}
+{"date":"2023-05-20T11:16:29.558Z","level":"info","message":"Request received","method":"POST","service":"user-service","url":"/auth/login"}
+{"date":"2023-05-20T11:16:30.030Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/requests/get"}
+{"date":"2023-05-20T11:16:52.837Z","level":"info","message":"Request received","method":"POST","service":"user-service","url":"/auth/googleAuth"}
+{"date":"2023-05-20T11:16:53.137Z","level":"error","message":"user validation failed: password: Path `password` is required., company: Path `company` is required., lastname: Path `lastname` is required.","method":"POST","service":"user-service","url":"/googleAuth"}
+{"date":"2023-05-20T11:19:47.197Z","level":"info","message":"Request received","method":"POST","service":"user-service","url":"/auth/googleAuth"}
+{"date":"2023-05-20T11:19:47.622Z","level":"error","message":"user validation failed: password: Path `password` is required.","method":"POST","service":"user-service","url":"/googleAuth"}
+{"date":"2023-05-20T11:19:59.836Z","level":"info","message":"Request received","method":"POST","service":"user-service","url":"/auth/googleAuth"}
+{"date":"2023-05-20T11:20:00.377Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/requests/get"}

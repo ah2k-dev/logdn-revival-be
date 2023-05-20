@@ -12,14 +12,14 @@ const userSchema = new Schema({
   },
   lastname: {
     type: String,
-    required: true,
+    // required: true,
   },
   phone: {
     type: String,
   },
   company: {
     type: String,
-    required: true,
+    // required: true,
   },
   email: {
     type: String,
@@ -33,7 +33,7 @@ const userSchema = new Schema({
   },
   password: {
     type: String,
-    required: true,
+    // required: true,
     //validation will be before saving to db
   },
   role: {

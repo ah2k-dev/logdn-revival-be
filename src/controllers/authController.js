@@ -268,16 +268,23 @@ const googleAuth = async (req, res) => {
     if (!exUser) {
       user = await User.create({
         email: email,
-        name: name,
+        firstname: name,
+        lastname: "",
         profilePic: profilePic,
         emailVerified: emailVerified,
       });
       jwtToken = user.getJWTToken();
     } else {
       jwtToken = exUser.getJWTToken();
+      user = exUser;
     }
+    delete user.password;
+    delete user.emailVerificationToken;
+    delete user.emailVerificationTokenExpires;
+    delete user.passwordResetToken;
+    delete user.passwordResetTokenExpires;
     return SuccessHandler(
-      { message: "Logged in successfully", jwtToken },
+      { message: "Logged in successfully", jwtToken, userData: user },
       200,
       res
     );
