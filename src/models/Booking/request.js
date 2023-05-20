@@ -53,6 +53,9 @@ const requestSchema = new Schema({
     type: Schema.Types.ObjectId,
     ref: "offering",
   },
+  paymentReceipt: {
+    type: String,
+  },
   isActive: {
     type: Boolean,
     default: true,

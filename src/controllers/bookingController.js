@@ -10,11 +10,23 @@ const bookOffer = async (req, res) => {
   // #swagger.tags = ['booking']
   try {
     const { requestId, offering } = req.body;
+    if (req.files) {
+      const { receipt } = req.files;
+      // save file in files folder in project root directory
+      filepath = `/files/${receipt.name}`;
+      receipt.mv(path.join(__dirname, "../../files", receipt.name), (err) => {
+        if (err) {
+          console.error(err);
+          return ErrorHandler(err.message, 500, req, res);
+        }
+      });
+    }
     const bookedReq = await request.findByIdAndUpdate(
       requestId,
       {
         // status: "payentVerified",
         bookedOffering: offering,
+        paymentReceipt: filepath ? filepath : null,
       },
       { new: true }
     );
