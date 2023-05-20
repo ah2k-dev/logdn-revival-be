@@ -47,7 +47,7 @@ const getRequests = async (req, res) => {
         .populate("bookedOffering")
         .populate({
           path: "user",
-          select: "firstname lastname email phone commpany",
+          select: "firstname lastname email phone company",
         });
       if (!requests) {
         return ErrorHandler("No requests found", 400, req, res);
@@ -73,7 +73,7 @@ const getRequests = async (req, res) => {
         .populate("bookedOffering")
         .populate({
           path: "user",
-          select: "firstname lastname email phone commpany",
+          select: "firstname lastname email phone company",
         })
         .sort({
           createdAt: -1,
@@ -107,7 +107,7 @@ const getOngoingStays = async (req, res) => {
         .populate("bookedOffering")
         .populate({
           path: "user",
-          select: "firstname lastname email phone commpany",
+          select: "firstname lastname email phone company",
         })
         .sort({
           createdAt: -1,
@@ -131,7 +131,7 @@ const getOngoingStays = async (req, res) => {
         .populate("bookedOffering")
         .populate({
           path: "user",
-          select: "firstname lastname email phone commpany",
+          select: "firstname lastname email phone company",
         })
         .sort({
           createdAt: -1,
@@ -157,7 +157,7 @@ const getRequest = async (req, res) => {
     const { id } = req.params;
     const request = request.findById(id).populate({
       path: "user",
-      select: "firstname lastname email phone commpany",
+      select: "firstname lastname email phone company",
     });
     if (!request) {
       return ErrorHandler("No request found", 400, req, res);
@@ -247,7 +247,7 @@ const getPreviousStays = async (req, res) => {
       })
       .populate({
         path: "user",
-        select: "firstname lastname email phone commpany",
+        select: "firstname lastname email phone company",
       })
       // .populate("offerings")
       // .populate("bookedOffering");
@@ -308,7 +308,7 @@ const getRejectedRequests = async (req, res) => {
         .populate("bookedOffering")
         .populate({
           path: "user",
-          select: "firstname lastname email phone commpany",
+          select: "firstname lastname email phone company",
         })
         .sort({
           createdAt: -1,
@@ -333,7 +333,7 @@ const getRejectedRequests = async (req, res) => {
         .populate("bookedOffering")
         .populate({
           path: "user",
-          select: "firstname lastname email phone commpany",
+          select: "firstname lastname email phone company",
         })
         .sort({
           createdAt: -1,
