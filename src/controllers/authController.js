@@ -10,7 +10,7 @@ const register = async (req, res) => {
     const { firstname, lastname, phone, company, email, password } = req.body;
     if (
       !password.match(
-        /(?=[A-Za-z0-9@#$%^&+!=]+$)^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[@#$%^&+!=])(?=.{8,}).*$/
+        /(?=[A-Za-z0-9]+$)^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9]).{8,}$/
       )
     ) {
       return ErrorHandler(
@@ -225,7 +225,7 @@ const updatePassword = async (req, res) => {
     const { currentPassword, newPassword } = req.body;
     if (
       !newPassword.match(
-        /(?=[A-Za-z0-9@#$%^&+!=]+$)^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[@#$%^&+!=])(?=.{8,}).*$/
+        /(?=[A-Za-z0-9]+$)^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9]).{8,}$/
       )
     ) {
       return ErrorHandler(
