@@ -8,18 +8,18 @@ const register = async (req, res) => {
   // #swagger.tags = ['auth']
   try {
     const { firstname, lastname, phone, company, email, password } = req.body;
-    if (
-      !password.match(
-        /(?=[A-Za-z0-9]+$)^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9]).{8,}$/
-      )
-    ) {
-      return ErrorHandler(
-        "Password must contain atleast one uppercase letter, one special character and one number",
-        400,
-        req,
-        res
-      );
-    }
+    // if (
+    //   !password.match(
+    //     /(?=[A-Za-z0-9]+$)^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9]).{8,}$/
+    //   )
+    // ) {
+    //   return ErrorHandler(
+    //     "Password must contain atleast one uppercase letter, one special character and one number",
+    //     400,
+    //     req,
+    //     res
+    //   );
+    // }
     const user = await User.findOne({ email });
     if (user) {
       return ErrorHandler("User already exists", 400, req, res);
@@ -223,18 +223,18 @@ const updatePassword = async (req, res) => {
 
   try {
     const { currentPassword, newPassword } = req.body;
-    if (
-      !newPassword.match(
-        /(?=[A-Za-z0-9]+$)^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9]).{8,}$/
-      )
-    ) {
-      return ErrorHandler(
-        "Password must contain at least 8 characters, 1 uppercase, 1 lowercase, 1 number and 1 special character",
-        400,
-        req,
-        res
-      );
-    }
+    // if (
+    //   !newPassword.match(
+    //     /(?=[A-Za-z0-9]+$)^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9]).{8,}$/
+    //   )
+    // ) {
+    //   return ErrorHandler(
+    //     "Password must contain at least 8 characters, 1 uppercase, 1 lowercase, 1 number and 1 special character",
+    //     400,
+    //     req,
+    //     res
+    //   );
+    // }
     const user = await User.findById(req.user.id).select("+password");
     const isMatch = await user.comparePassword(currentPassword);
     if (!isMatch) {
