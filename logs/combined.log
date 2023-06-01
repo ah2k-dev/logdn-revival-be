@@ -1056,3 +1056,19 @@
 {"date":"2023-05-20T11:19:47.622Z","level":"error","message":"user validation failed: password: Path `password` is required.","method":"POST","service":"user-service","url":"/googleAuth"}
 {"date":"2023-05-20T11:19:59.836Z","level":"info","message":"Request received","method":"POST","service":"user-service","url":"/auth/googleAuth"}
 {"date":"2023-05-20T11:20:00.377Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/requests/get"}
+{"date":"2023-06-01T14:14:40.786Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/requests/get"}
+{"date":"2023-06-01T14:14:41.096Z","level":"error","message":"Cannot read properties of null (reading '_id')","method":"GET","service":"user-service","url":"/get"}
+{"date":"2023-06-01T14:14:50.700Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/requests/get"}
+{"date":"2023-06-01T14:14:50.919Z","level":"error","message":"Cannot read properties of null (reading '_id')","method":"GET","service":"user-service","url":"/get"}
+{"date":"2023-06-01T14:16:38.141Z","level":"info","message":"Request received","method":"POST","service":"user-service","url":"/auth/register"}
+{"date":"2023-06-01T14:16:38.424Z","level":"error","message":"User already exists","method":"POST","service":"user-service","url":"/register"}
+{"date":"2023-06-01T14:17:39.397Z","level":"info","message":"Request received","method":"POST","service":"user-service","url":"/auth/register"}
+{"date":"2023-06-01T14:17:40.225Z","level":"info","message":"Request received","method":"POST","service":"user-service","url":"/auth/requestEmailToken"}
+{"date":"2023-06-01T14:18:59.785Z","level":"info","message":"Request received","method":"POST","service":"user-service","url":"/auth/login"}
+{"date":"2023-06-01T14:19:00.247Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/requests/get"}
+{"date":"2023-06-01T14:19:15.961Z","level":"info","message":"Request received","method":"POST","service":"user-service","url":"/requests/updateOffer/6468acdafdc1edf957b749b9"}
+{"date":"2023-06-01T14:19:22.972Z","level":"info","message":"Request received","method":"POST","service":"user-service","url":"/requests/updateOffer/6468acdafdc1edf957b749b9"}
+{"date":"2023-06-01T14:19:28.447Z","level":"info","message":"Request received","method":"POST","service":"user-service","url":"/requests/updateOffer/6468acdafdc1edf957b749b9"}
+{"date":"2023-06-01T14:21:00.766Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/requests/get"}
+{"date":"2023-06-01T14:21:07.390Z","level":"info","message":"Request received","method":"PUT","service":"user-service","url":"/requests/updateOffer/6468acdafdc1edf957b749b9"}
+{"date":"2023-06-01T14:21:08.026Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/requests/get"}

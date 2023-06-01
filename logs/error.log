@@ -114,3 +114,6 @@
 {"date":"2023-05-20T11:10:56.957Z","level":"error","message":"User does not exist","method":"POST","service":"user-service","url":"/login"}
 {"date":"2023-05-20T11:16:53.137Z","level":"error","message":"user validation failed: password: Path `password` is required., company: Path `company` is required., lastname: Path `lastname` is required.","method":"POST","service":"user-service","url":"/googleAuth"}
 {"date":"2023-05-20T11:19:47.622Z","level":"error","message":"user validation failed: password: Path `password` is required.","method":"POST","service":"user-service","url":"/googleAuth"}
+{"date":"2023-06-01T14:14:41.096Z","level":"error","message":"Cannot read properties of null (reading '_id')","method":"GET","service":"user-service","url":"/get"}
+{"date":"2023-06-01T14:14:50.919Z","level":"error","message":"Cannot read properties of null (reading '_id')","method":"GET","service":"user-service","url":"/get"}
+{"date":"2023-06-01T14:16:38.424Z","level":"error","message":"User already exists","method":"POST","service":"user-service","url":"/register"}

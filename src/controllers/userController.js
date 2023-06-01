@@ -16,12 +16,14 @@ const getUsers = async (req, res) => {
       .select(
         "-password -emailVerificationToken -emailVerificationTokenExpires -passwordResetToken -passwordResetTokenExpires"
       );
-    const moderators = await user.find({
-      role: "moderator",
-      isActive: true,
-    }).select(
-      "-password -emailVerificationToken -emailVerificationTokenExpires -passwordResetToken -passwordResetTokenExpires"
-    );
+    const moderators = await user
+      .find({
+        role: "moderator",
+        isActive: true,
+      })
+      .select(
+        "-password -emailVerificationToken -emailVerificationTokenExpires -passwordResetToken -passwordResetTokenExpires"
+      );
     return SuccessHandler({ users, moderators }, 200, res);
   } catch (error) {
     return ErrorHandler(error.message, 500, req, res);
@@ -39,9 +41,11 @@ const getMe = async (req, res) => {
 const createModerator = async (req, res) => {
   // #swagger.tags = ['user']
   try {
-    const { name, email, password, permissions } = req.body;
+    const { firstName, lastName, email, password, permissions } = req.body;
+
     const updatedUser = await user.create({
-      name,
+      firstname: firstName,
+      lastname: lastName,
       email,
       password,
       role: "moderator",
@@ -57,10 +61,10 @@ const createModerator = async (req, res) => {
 const updateMe = async (req, res) => {
   // #swagger.tags = ['user']
   try {
-    const { name } = req.body;
+    const { firstName, lastName, phone, company } = req.body;
     const updated = await user.findByIdAndUpdate(
       req.user._id,
-      { name },
+      { firstname: firstName, lastname: lastName, phone, company },
       { new: true }
     );
     if (!updated)
@@ -88,14 +92,14 @@ const blockUnblock = async (req, res) => {
 const updateModerator = async (req, res) => {
   // #swagger.tags = ['user']
   try {
-    const { id, name, email, permissions } = req.body;
-    const user = await User.findByIdAndUpdate(
+    const { id, firstName, lastName, email, permissions } = req.body;
+    const exuser = await user.findByIdAndUpdate(
       id,
-      { name, email, permissions },
+      { firstname: firstName, lastname: lastName, email, permissions },
       { new: true }
     );
-    if (!user) return ErrorHandler("Failed to update user", 400, req, res);
-    return SuccessHandler({ user }, 200, res);
+    if (!exuser) return ErrorHandler("Failed to update user", 400, req, res);
+    return SuccessHandler({ exuser }, 200, res);
   } catch (error) {
     return ErrorHandler(error.message, 500, req, res);
   }
