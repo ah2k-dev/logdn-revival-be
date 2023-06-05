@@ -16,7 +16,7 @@ const sendMail = async (email, subject, text) => {
     from: "app@lodgn.app",
     to: email,
     subject,
-    text,
+    html: text,
   });
 };
 

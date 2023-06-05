@@ -3,6 +3,10 @@ const sendMail = require("../utils/sendMail");
 const SuccessHandler = require("../utils/SuccessHandler");
 const ErrorHandler = require("../utils/ErrorHandler");
 const request = require("../models/Booking/request");
+const ejs = require("ejs");
+const path = require("path");
+const fs = require("fs");
+
 //register
 const register = async (req, res) => {
   // #swagger.tags = ['auth']
@@ -57,7 +61,16 @@ const requestEmailToken = async (req, res) => {
     await user.save();
     const message = `Your email verification token is ${emailVerificationToken} and it expires in 10 minutes`;
     const subject = `Email verification token`;
-    await sendMail(email, subject, message);
+    const ForgetPasswordPath = path.join(
+      __dirname,
+      "../utils/ForgetPassword.ejs"
+    );
+    const ForgetPasswordTemplate = fs.readFileSync(ForgetPasswordPath, "utf-8");
+    const html = ejs.render(ForgetPasswordTemplate, {
+      name: user.name,
+      token: emailVerificationToken,
+    });
+    await sendMail(email, subject, html);
     return SuccessHandler(
       `Email verification token sent to ${email}`,
       200,
@@ -184,7 +197,25 @@ const forgotPassword = async (req, res) => {
     await user.save();
     const message = `Your password reset token is ${passwordResetToken} and it expires in 10 minutes`;
     const subject = `Password reset token`;
-    await sendMail(email, subject, message);
+    const ForgetPasswordPath = path.join(__dirname, '../utils/ForgetPassword.ejs');
+    const ForgetPassword = fs.readFileSync(ForgetPasswordPath, 'utf-8');
+    // ejs.renderFile(ForgetPassword ,{
+    //   // name: user.name,
+    //   token: passwordResetToken
+    // }, async (err, file)=>{
+    //   if(err){
+    //     // return ErrorHandler(err.message, 500, req, res);
+    //     console.log(err)
+    //   } else {
+    //     await sendMail(email, subject, file);
+    //   }
+    // })
+    // // await sendMail(email, subject, message);
+    const html = ejs.render(ForgetPassword, {
+      name: user.name,
+      token: passwordResetToken
+    });
+    await sendMail(email, subject, html);
     return SuccessHandler(`Password reset token sent to ${email}`, 200, res);
   } catch (error) {
     return ErrorHandler(error.message, 500, req, res);

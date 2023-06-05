@@ -98,6 +98,7 @@ const updateModerator = async (req, res) => {
       { firstname: firstName, lastname: lastName, email, permissions },
       { new: true }
     );
+    console.log(exuser)
     if (!exuser) return ErrorHandler("Failed to update user", 400, req, res);
     return SuccessHandler({ exuser }, 200, res);
   } catch (error) {

@@ -117,3 +117,7 @@
 {"date":"2023-06-01T14:14:41.096Z","level":"error","message":"Cannot read properties of null (reading '_id')","method":"GET","service":"user-service","url":"/get"}
 {"date":"2023-06-01T14:14:50.919Z","level":"error","message":"Cannot read properties of null (reading '_id')","method":"GET","service":"user-service","url":"/get"}
 {"date":"2023-06-01T14:16:38.424Z","level":"error","message":"User already exists","method":"POST","service":"user-service","url":"/register"}
+{"date":"2023-06-02T14:52:44.748Z","level":"error","message":"Failed to update user","method":"PUT","service":"user-service","url":"/updateModerator"}
+{"date":"2023-06-02T14:53:18.416Z","level":"error","message":"Failed to update user","method":"PUT","service":"user-service","url":"/updateModerator"}
+{"date":"2023-06-02T15:10:24.346Z","level":"error","message":"E11000 duplicate key error collection: lodgn-revival-1.users index: email_1 dup key: { email: \"dummy_mod@lodgn.com\" }","method":"POST","service":"user-service","url":"/createModerator"}
+{"date":"2023-06-05T14:36:01.601Z","level":"error","message":"ENOENT: no such file or directory, open '../utils/ForgetPassword.ejs'","method":"POST","service":"user-service","url":"/forgotPassword"}

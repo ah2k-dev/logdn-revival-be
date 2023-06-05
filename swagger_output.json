@@ -40,7 +40,16 @@
             "schema": {
               "type": "object",
               "properties": {
-                "name": {
+                "firstname": {
+                  "example": "any"
+                },
+                "lastname": {
+                  "example": "any"
+                },
+                "phone": {
+                  "example": "any"
+                },
+                "company": {
                   "example": "any"
                 },
                 "email": {
@@ -533,6 +542,59 @@
         }
       }
     },
+    "/requests/updateOffer/{id}": {
+      "put": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "authorization",
+            "in": "header",
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "images": {
+                  "example": "any"
+                },
+                "title": {
+                  "example": "any"
+                },
+                "description": {
+                  "example": "any"
+                },
+                "rates": {
+                  "example": "any"
+                },
+                "paymentLink": {
+                  "example": "any"
+                },
+                "flag": {
+                  "example": "any"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "401": {
+            "description": "Unauthorized"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
     "/booking/bookOffer": {
       "post": {
         "tags": [
@@ -699,8 +761,11 @@
         }
       }
     },
-    "/user/": {
+    "/user/all": {
       "get": {
+        "tags": [
+          "user"
+        ],
         "description": "",
         "parameters": [
           {
@@ -721,6 +786,9 @@
     },
     "/user/me": {
       "get": {
+        "tags": [
+          "user"
+        ],
         "description": "",
         "parameters": [
           {
@@ -741,12 +809,39 @@
     },
     "/user/createModerator": {
       "post": {
+        "tags": [
+          "user"
+        ],
         "description": "",
         "parameters": [
           {
             "name": "authorization",
             "in": "header",
             "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "firstName": {
+                  "example": "any"
+                },
+                "lastName": {
+                  "example": "any"
+                },
+                "email": {
+                  "example": "any"
+                },
+                "password": {
+                  "example": "any"
+                },
+                "permissions": {
+                  "example": "any"
+                }
+              }
+            }
           }
         ],
         "responses": {
@@ -761,12 +856,36 @@
     },
     "/user/updateMe": {
       "put": {
+        "tags": [
+          "user"
+        ],
         "description": "",
         "parameters": [
           {
             "name": "authorization",
             "in": "header",
             "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "firstName": {
+                  "example": "any"
+                },
+                "lastName": {
+                  "example": "any"
+                },
+                "phone": {
+                  "example": "any"
+                },
+                "company": {
+                  "example": "any"
+                }
+              }
+            }
           }
         ],
         "responses": {
@@ -781,12 +900,30 @@
     },
     "/user/blockUnblock": {
       "put": {
+        "tags": [
+          "user"
+        ],
         "description": "",
         "parameters": [
           {
             "name": "authorization",
             "in": "header",
             "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "example": "any"
+                },
+                "status": {
+                  "example": "any"
+                }
+              }
+            }
           }
         ],
         "responses": {
@@ -801,12 +938,39 @@
     },
     "/user/updateModerator": {
       "put": {
+        "tags": [
+          "user"
+        ],
         "description": "",
         "parameters": [
           {
             "name": "authorization",
             "in": "header",
             "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "example": "any"
+                },
+                "firstName": {
+                  "example": "any"
+                },
+                "lastName": {
+                  "example": "any"
+                },
+                "email": {
+                  "example": "any"
+                },
+                "permissions": {
+                  "example": "any"
+                }
+              }
+            }
           }
         ],
         "responses": {
