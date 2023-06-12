@@ -5,10 +5,10 @@
     "description": "logdn-revival endpoints",
     "version": "1.0.0"
   },
-  "host": "localhost:8001",
+  "host": "api.lodgn.app",
   "basePath": "/",
   "schemes": [
-    "http"
+    "https"
   ],
   "consumes": [
     "application/json"
