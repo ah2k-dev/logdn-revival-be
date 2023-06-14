@@ -105,7 +105,15 @@ const verifyEmail = async (req, res) => {
     user.emailVerificationTokenExpires = null;
     jwtToken = user.getJWTToken();
     await user.save();
-    return SuccessHandler("Email verified successfully", 200, res);
+    return SuccessHandler(
+      {
+        message: "Email verified successfully",
+        jwtToken: user.getJWTToken(),
+        userData: user,
+      },
+      200,
+      res
+    );
   } catch (error) {
     return ErrorHandler(error.message, 500, req, res);
   }
@@ -197,8 +205,11 @@ const forgotPassword = async (req, res) => {
     await user.save();
     const message = `Your password reset token is ${passwordResetToken} and it expires in 10 minutes`;
     const subject = `Password reset token`;
-    const ForgetPasswordPath = path.join(__dirname, '../utils/ForgetPassword.ejs');
-    const ForgetPassword = fs.readFileSync(ForgetPasswordPath, 'utf-8');
+    const ForgetPasswordPath = path.join(
+      __dirname,
+      "../utils/ForgetPassword.ejs"
+    );
+    const ForgetPassword = fs.readFileSync(ForgetPasswordPath, "utf-8");
     // ejs.renderFile(ForgetPassword ,{
     //   // name: user.name,
     //   token: passwordResetToken
@@ -213,7 +224,7 @@ const forgotPassword = async (req, res) => {
     // // await sendMail(email, subject, message);
     const html = ejs.render(ForgetPassword, {
       name: user.name,
-      token: passwordResetToken
+      token: passwordResetToken,
     });
     await sendMail(email, subject, html);
     return SuccessHandler(`Password reset token sent to ${email}`, 200, res);
