@@ -78,10 +78,16 @@ const userSchema = new Schema({
   auth: {
     type: String,
     default: "app",
-    enum: ["app", "google"],
+    enum: ["app", "google", "apple"],
   },
   permissions: {
     type: [String],
+  },
+  uid: {
+    type: String,
+  },
+  username: {
+    type: String,
   },
 });
 

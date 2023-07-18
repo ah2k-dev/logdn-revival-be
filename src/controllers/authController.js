@@ -335,6 +335,65 @@ const googleAuth = async (req, res) => {
   }
 };
 
+const appleSignUp = async (req, res) => {
+  // #swagger.tags = ['auth']
+  try {
+    const {
+      uid,
+      username,
+      photoUrl,
+      email,
+      firstname,
+      lastname,
+      phone,
+      company,
+    } = req.body;
+
+    const newUser = await User.create({
+      uid,
+      username,
+      profilePic: photoUrl,
+      email,
+      firstname,
+      lastname,
+      phone,
+      company,
+      emailVerified: true,
+      auth: "apple",
+      role: "user",
+    });
+
+    const jwtToken = newUser.getJWTToken();
+
+    return SuccessHandler(
+      { message: "Logged in successfully", jwtToken, userData: newUser },
+      200,
+      res
+    );
+  } catch (error) {
+    return ErrorHandler(error.message, 500, req, res);
+  }
+};
+
+const appleLogin = async (req, res) => {
+  // #swagger.tags = ['auth']
+  try {
+    const { uid } = req.body;
+    const user = await User.findOne({ uid });
+    if (!user) {
+      return ErrorHandler("User does not exist.", 401, req, res);
+    }
+    const jwtToken = user.getJWTToken();
+    return SuccessHandler(
+      { message: "Logged in successfully", jwtToken, userData: user },
+      200,
+      res
+    );
+  } catch (error) {
+    return ErrorHandler(error.message, 500, req, res);
+  }
+};
+
 module.exports = {
   register,
   requestEmailToken,
@@ -345,4 +404,6 @@ module.exports = {
   resetPassword,
   updatePassword,
   googleAuth,
+  appleSignUp,
+  appleLogin,
 };

@@ -211,6 +211,73 @@
         "responses": {}
       }
     },
+    "/auth/appleLogin": {
+      "post": {
+        "tags": [
+          "auth"
+        ],
+        "description": "",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "uid": {
+                  "example": "any"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {}
+      }
+    },
+    "/auth/appleSignup": {
+      "post": {
+        "tags": [
+          "auth"
+        ],
+        "description": "",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "uid": {
+                  "example": "any"
+                },
+                "username": {
+                  "example": "any"
+                },
+                "photoUrl": {
+                  "example": "any"
+                },
+                "email": {
+                  "example": "any"
+                },
+                "firstname": {
+                  "example": "any"
+                },
+                "lastname": {
+                  "example": "any"
+                },
+                "phone": {
+                  "example": "any"
+                },
+                "company": {
+                  "example": "any"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {}
+      }
+    },
     "/auth/resetPassword": {
       "put": {
         "tags": [

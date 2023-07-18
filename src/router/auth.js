@@ -1,6 +1,6 @@
 const express = require("express");
 const auth = require("../controllers/authController");
-const {isAuthenticated} = require("../middleware/auth");
+const { isAuthenticated } = require("../middleware/auth");
 const router = express.Router();
 
 //get
@@ -12,6 +12,8 @@ router.route("/requestEmailToken").post(auth.requestEmailToken);
 router.route("/verifyEmail").post(auth.verifyEmail);
 router.route("/forgotPassword").post(auth.forgotPassword);
 router.route("/googleAuth").post(auth.googleAuth);
+router.route("/appleLogin").post(auth.appleLogin);
+router.route("/appleSignup").post(auth.appleSignUp);
 //put
 router.route("/resetPassword").put(auth.resetPassword);
 router.route("/updatePassword").put(isAuthenticated, auth.updatePassword);
