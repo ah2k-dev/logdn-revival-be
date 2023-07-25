@@ -7,7 +7,7 @@ router.post("/", (req, res) => {
     return res.status(400).json({ msg: "No file uploaded" });
   }
   const { file } = req.files; 
-  const filePath = `/files/${files.name}`;
+  const filePath = `/files/${file.name}`;
   file.mv(path.join(__dirname, `../../files`, file.name), (err) => {
     if (err) {
       console.log(err);
