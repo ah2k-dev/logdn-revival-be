@@ -47,7 +47,7 @@ const getRequests = async (req, res) => {
         .populate("bookedOffering")
         .populate({
           path: "user",
-          select: "firstname lastname email phone company",
+          select: "firstname lastname email phone company profilePic",
         });
       if (!requests) {
         return ErrorHandler("No requests found", 400, req, res);
@@ -73,7 +73,7 @@ const getRequests = async (req, res) => {
         .populate("bookedOffering")
         .populate({
           path: "user",
-          select: "firstname lastname email phone company",
+          select: "firstname lastname email phone company profilePic",
         })
         .sort({
           createdAt: -1,
@@ -107,7 +107,7 @@ const getOngoingStays = async (req, res) => {
         .populate("bookedOffering")
         .populate({
           path: "user",
-          select: "firstname lastname email phone company",
+          select: "firstname lastname email phone company profilePic",
         })
         .sort({
           createdAt: -1,
@@ -131,7 +131,7 @@ const getOngoingStays = async (req, res) => {
         .populate("bookedOffering")
         .populate({
           path: "user",
-          select: "firstname lastname email phone company",
+          select: "firstname lastname email phone company profilePic",
         })
         .sort({
           createdAt: -1,
@@ -247,7 +247,7 @@ const getPreviousStays = async (req, res) => {
       })
       .populate({
         path: "user",
-        select: "firstname lastname email phone company",
+        select: "firstname lastname email phone company profilePic",
       })
       // .populate("offerings")
       // .populate("bookedOffering");
@@ -308,7 +308,7 @@ const getRejectedRequests = async (req, res) => {
         .populate("bookedOffering")
         .populate({
           path: "user",
-          select: "firstname lastname email phone company",
+          select: "firstname lastname email phone company profilePic",
         })
         .sort({
           createdAt: -1,
@@ -333,7 +333,7 @@ const getRejectedRequests = async (req, res) => {
         .populate("bookedOffering")
         .populate({
           path: "user",
-          select: "firstname lastname email phone company",
+          select: "firstname lastname email phone company profilePic",
         })
         .sort({
           createdAt: -1,

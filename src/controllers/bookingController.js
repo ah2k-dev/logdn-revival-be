@@ -156,7 +156,7 @@ const getRequestUpdates = async (req, res) => {
         .populate("request")
         .populate({
           path: "user",
-          select: "firstname lastname email phone company",
+          select: "firstname lastname email phone company profilePic",
         })
         .sort({
           createdAt: -1,
@@ -175,7 +175,7 @@ const getRequestUpdates = async (req, res) => {
         .populate("request")
         .populate({
           path: "user",
-          select: "firstname lastname email phone company",
+          select: "firstname lastname email phone company profilePic",
         })
         .sort({
           createdAt: -1,

@@ -35,6 +35,7 @@ const register = async (req, res) => {
       company,
       email,
       password,
+      profilePic: req.body.profilePic ? req.body.profilePic : null,
       // role: 'admin'
     });
     newUser.save();
