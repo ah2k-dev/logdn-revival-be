@@ -2,6 +2,7 @@ const router = require("express").Router();
 const path = require("path");
 
 router.post("/", (req, res) => {
+    // #swagger.tags = ['Uploader']
   if (req.files === null || req.files === undefined) {
     return res.status(400).json({ msg: "No file uploaded" });
   }

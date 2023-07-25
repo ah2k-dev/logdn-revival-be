@@ -40,6 +40,9 @@
             "schema": {
               "type": "object",
               "properties": {
+                "profilePic": {
+                  "example": "any"
+                },
                 "firstname": {
                   "example": "any"
                 },
@@ -1046,6 +1049,23 @@
           },
           "500": {
             "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/uploader/": {
+      "post": {
+        "tags": [
+          "Uploader"
+        ],
+        "description": "",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
           }
         }
       }
