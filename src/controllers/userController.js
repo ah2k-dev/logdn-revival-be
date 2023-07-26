@@ -61,10 +61,10 @@ const createModerator = async (req, res) => {
 const updateMe = async (req, res) => {
   // #swagger.tags = ['user']
   try {
-    const { firstName, lastName, phone, company } = req.body;
+    const { firstName, lastName, phone, company, profilePic } = req.body;
     const updated = await user.findByIdAndUpdate(
       req.user._id,
-      { firstname: firstName, lastname: lastName, phone, company },
+      { firstname: firstName, lastname: lastName, phone, company, profilePic },
       { new: true }
     );
     if (!updated)
